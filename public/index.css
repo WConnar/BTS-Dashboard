@@ -17,15 +17,18 @@ p.titlebox {
   
   .left {
     width: 17.5%;
-    height: 500px;
+    height: 1000px;
+    line-height: 40px;
   }
 
   .middle {
     width: 40%;
+    height: 810px;
   }
 
   .right{
     width: 30%;
+    height: 385px;
   }
 
   .top {
