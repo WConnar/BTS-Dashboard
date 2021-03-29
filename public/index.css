@@ -1,4 +1,4 @@
-p.roundbox {
+p.titlebox {
     border: 5px solid black;
     text-align: left;
     font-size: 40px;
@@ -16,12 +16,22 @@ p.roundbox {
   }
   
   .left {
-    width: 15%;
+    width: 17.5%;
     height: 500px;
   }
 
   .middle {
-    width: 42.5%;
+    width: 40%;
+  }
+
+  .right{
+    width: 30%;
+  }
+
+  .top {
+    width: 74%;
+    height: 150px;
+    overflow:auto;
   }
   
   
