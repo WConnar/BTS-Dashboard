@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 p.titlebox {
     border: 5px solid black;
-    text-align: left;
+    text-align: center;
     font-size: 40px;
-    padding: 20px;
-    width: auto;
-    height: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 7px;
     background:white;
 }
 
@@ -38,8 +38,6 @@ p.titlebox {
     overflow:auto;
   }
   
-  
-  /* Clear floats after the columns */
   .row:after {
     content: "";
     display: table;
