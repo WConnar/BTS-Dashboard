@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+p.titlebox {
+    border: 5px solid black;
+    text-align: left;
+    font-size: 40px;
+    padding: 20px;
+    width: auto;
+    height: auto;
+    background:white;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+    border: 10px solid #7c40ff;
+    background:white;
+  }
+  
+  .left {
+    width: 17.5%;
+    height: 1000px;
+    line-height: 40px;
+  }
+
+  .middle {
+    width: 40%;
+    height: 810px;
+  }
+
+  .right{
+    width: 30%;
+    height: 385px;
+  }
+
+  .top {
+    width: 74%;
+    height: 150px;
+    overflow:auto;
+  }
+  
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
