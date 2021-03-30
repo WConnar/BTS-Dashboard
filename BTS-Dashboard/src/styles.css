@@ -9,6 +9,32 @@ p.titlebox {
     background:white;
 }
 
+buttonbox {
+  border: 2px solid black;
+  text-align: left;
+  padding: 5px;
+  width:auto;
+  border-radius: 10px;
+  box-shadow: 2px 4px 4px 0px  grey;
+}
+
+buttonbox2 {
+  border: 2px solid black;
+  text-align: left;
+  padding: 5px;
+  width:auto;
+  border-radius: 10px;
+  box-shadow: 2px 4px 4px 0px  #4a2699;
+}
+
+buttonboxpressed{
+  border: 2px solid black;
+  text-align: left;
+  padding:5px;
+  border-radius: 10px;
+  box-shadow: inset 2px 4px 4px 0px  grey;
+}
+
 .column {
     float: left;
     padding: 10px;
