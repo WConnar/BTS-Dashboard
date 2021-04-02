@@ -1,5 +1,4 @@
 //import modules
-const { CONSOLE_APPENDER } = require('karma/lib/constants');
 var Twitter = require('twitter');
 
 class TweetFetcher{
@@ -48,4 +47,4 @@ async function displayTweets(){
 var tweetFetcher = new TweetFetcher();
 var tweets = tweetFetcher.getTweets("bts", 5);
 displayTweets();
-//module.exports = {TweetFetcher};
+module.exports = {TweetFetcher};
