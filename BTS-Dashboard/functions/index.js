@@ -16,16 +16,17 @@ const getTwitterClient = () => {
 
 const callApi = (request, response, url) => {
   let client = getTwitterClient();  
-  client.get(url, {screen_name:"bts_bighit", count:5}, function(error, tweets, res) {
+  client.get(url, {screen_name:"bts_bighit", count:10}, function(error, tweets, res) {
     if (!error) {
       admin.firestore().collection('tweets').listDocuments().then(val => {
         val.map((val) => {
             val.delete()
         })
       })
-      tweets.forEach((tweet) => {
+      tweets.forEach(async (tweet) => {
+        const tweetCode = await client.get('statuses/oembed', {id: tweet.id_str});
         admin.firestore().collection('tweets').add({
-          text: tweet.text
+          tweet: tweetCode
         })
       })
       response.status(200).send(tweets);
@@ -38,3 +39,11 @@ exports.updateTweets = functions.https.onRequest((request, response) => {
     callApi(request, response, 'statuses/user_timeline');
   });
 });
+
+/*exports.getTweetsFromDB = functions.https.onCall((data, context) => {
+  const dbTweets = [];
+  admin.firestore().collection('tweets').listDocuments().then(val => {
+
+  })
+})
+*/
