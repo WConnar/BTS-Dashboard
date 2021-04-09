@@ -13,6 +13,7 @@ import { NewsCardComponent } from './news-card/news-card.component';
 import { SiteFooterComponent } from './site-footer/site-footer.component';
 import { TwitterCardComponent } from './twitter-card/twitter-card.component';
 import { YoutubeCarouselComponent } from './youtube-carousel/youtube-carousel.component';
+import { LoginPopComponent } from './login-pop/login-pop.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { YoutubeCarouselComponent } from './youtube-carousel/youtube-carousel.co
     NewsCardComponent,
     SiteFooterComponent,
     TwitterCardComponent,
-    YoutubeCarouselComponent
+    YoutubeCarouselComponent,
+    LoginPopComponent
   ],
   imports: [
     BrowserModule,
