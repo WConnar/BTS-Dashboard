@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+    <base href="/">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BTS Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="styles.scss">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600&display=swap" rel="stylesheet">
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 
@@ -37,9 +40,10 @@
     <script src="displayTweets.js" defer></script>
 </head>
 
-<body style="background:#7c40ff">
-    <p style="text-align:right;"><buttonbox2>Sign Up</buttonbox2></p>
-    <button id="loginWindowButton">Log In</button>
+<body>
+    <app-root>
+    </app-root>
+    <!--<button id="loginWindowButton">Log In</button>
     <div class = "log-in-window" id="log-in-window">
         <div class="log-in-header">
             <div class ="title">Please login in with one of your accounts.</div>
@@ -55,48 +59,6 @@
         </div>
     </div>
     <div id="overlay"></div>
-    
-    <p class="titlebox">
-        <img src="assets/BTS_Logo_White.jpg" alt="BTS Logo" height=180>
-        <img src="assets/Banner.jpeg" alt="Banner" height=200>
-        </p>
-    <div class="row">
-        <div class="column left">
-            <p style="font-size: 20px;"><buttonboxpressed>Home</buttonboxpressed></p>
-            <p style="font-size: 20px;"><buttonbox>My Dashboard</buttonbox></p>
-            
-            <p><a href="https://twitter.com/BTS_TWT?ref_src=twsrc%5Etfw">Twitter Button 1</a></p>
-            <p><a href="https://twitter.com/BTS_TWT?ref_src=twsrc%5Etfw">Twitter Button 2</a></p>
-
-            <div class="g-ytsubscribe" data-channel="BANGTANTV" data-layout="full" data-count="hidden"></div>
-            <iframe src="https://open.spotify.com/follow/1/?uri=spotify:artist:3Nrfpe0tUJi4K4DXYWgMUX&size=detail&theme=light&show-count=0" width="300" height="56" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe>
-            <p style="text-align:center;"><buttonbox>Sign Up</buttonbox> / <buttonbox>Log In</buttonbox></p>
-        </div>
-        <div class="column top">
-            <p><h3>About BTS</h3></p>
-            <p>BTS (Korean: 방탄소년단; RR: Bangtan Sonyeondan), also known as the Bangtan Boys, is a seven-member South Korean boy band that began formation in 2010 and debuted in 2013 under Big Hit Entertainment. 
-                The septet—composed of Jin, Suga, J-Hope, RM, Jimin, V, and Jungkook—co-writes and co-produces much of their own output. Originally a hip hop group, their musical style has evolved to include a wide 
-                range of genres. Their lyrics, often focused on personal and social commentary, touch on the themes of mental health, troubles of school-age youth, loss, the journey towards loving oneself, and individualism. 
-                Their work features references to literature and psychological concepts and includes an alternative universe storyline. The group has released several albums and performed on several world tours. 
-                <br />This article uses material from the Wikipedia article <a href="https://en.wikipedia.org/wiki/BTS" target="_blank" rel="noopener noreferrer">"BTS"</a>, which is released under the <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-Share-Alike License 3.0</a>.
-            </p>
-        </div>
-        <div class="column middle">
-            <p><h3>Latest News</h3></p>
-            Placeholder
-            <blockquote class="twitter-tweet"><p lang="ko" dir="ltr">[Episode] <a href="https://twitter.com/hashtag/BTS?src=hash&amp;ref_src=twsrc%5Etfw">#BTS</a> <a href="https://twitter.com/hashtag/%EB%B0%A9%ED%83%84%EC%86%8C%EB%85%84%EB%8B%A8?src=hash&amp;ref_src=twsrc%5Etfw">#방탄소년단</a> 2020 The Tonight Show 현장 비하인드 공개!<br>(<a href="https://t.co/u3pgtN2yJE">https://t.co/u3pgtN2yJE</a>)</p>&mdash; BTS_official (@bts_bighit) <a href="https://twitter.com/bts_bighit/status/1378648596468232194?ref_src=twsrc%5Etfw">April 4, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-        </div>
-        <div class="column right">
-            <h3>Twitter Feed</h3>
-            <p id="tweets">
-            </p>
-        </div>
-        <div class="column right">
-            <h3>Youtube Feed</h3>
-            Placeholder
-        </div>
-    </div>
-    <i>by Team VACKintosh (2021)</i>
-    <script src="LoginPopup.js" defer></script>
+    <script src="LoginPopup.js" defer></script>-->
 </body>
 </html>
