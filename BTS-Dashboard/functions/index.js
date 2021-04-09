@@ -24,9 +24,12 @@ const callApi = (request, response, url) => {
         })
       })
       tweets.forEach(async (tweet) => {
-        const tweetCode = await client.get('statuses/oembed', {id: tweet.id_str});
+        const embedTweet = await client.get('statuses/oembed', {id: tweet.id_str});
         admin.firestore().collection('tweets').add({
-          tweet: tweetCode
+          author_name: embedTweet.author_name,
+          author_url: embedTweet.author_url,
+          html: embedTweet.html,
+          url: embedTweet.url
         })
       })
       response.status(200).send(tweets);
@@ -40,10 +43,7 @@ exports.updateTweets = functions.https.onRequest((request, response) => {
   });
 });
 
-/*exports.getTweetsFromDB = functions.https.onCall((data, context) => {
-  const dbTweets = [];
-  admin.firestore().collection('tweets').listDocuments().then(val => {
-
-  })
+exports.getDataFromDB = functions.https.onCall(async (data, context) => {
+  const snapshot = await admin.firestore().collection(data).get()
+  return snapshot.docs.map(doc => doc.data());
 })
-*/
