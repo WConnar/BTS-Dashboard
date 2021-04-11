@@ -38,7 +38,24 @@
 </head>
 
 <body style="background:#7c40ff">
-    <p style="text-align:right;"><buttonbox2>Sign Up</buttonbox2> / <button id="signWithGoogle">Log In With Google</button></p>
+    <p style="text-align:right;"><buttonbox2>Sign Up</buttonbox2></p>
+    <button id="loginWindowButton">Log In</button>
+    <div class = "log-in-window" id="log-in-window">
+        <div class="log-in-header">
+            <div class ="title">Please login in with one of your accounts.</div>
+            <button id="loginCloseButton">&times;</button>
+        </div>
+        <div class = "log-in-body">
+            <button id="signWithGoogle">Sign in with Google</button>
+            <input id="email" type="email" placeholder="Enter your email" id="emailLogin">
+            <input id="password" type="password" placeholder="Enter your password" id="passwordlLogin">
+            <br>
+            <button id="emailSignUp">Sign up with email</button>
+            <button id="emailSignIn">Sign in with email</button>
+        </div>
+    </div>
+    <div id="overlay"></div>
+    
     <p class="titlebox">
         <img src="assets/BTS_Logo_White.jpg" alt="BTS Logo" height=180>
         <img src="assets/Banner.jpeg" alt="Banner" height=200>
@@ -80,5 +97,6 @@
     </div>
     <i>by Team VACKintosh (2021)</i>
     <script id="twitter-wjs" type="text/javascript" async defer src="//platform.twitter.com/widgets.js"></script>
+    <script src="LoginPopup.js" defer></script>
 </body>
 </html>
