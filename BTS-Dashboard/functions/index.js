@@ -1,36 +1,31 @@
+require('dotenv').config();
+const fetch = require("node-fetch");
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const Twitter = require('twitter');
 const cors = require('cors')({origin: true});
+const {TwitterDatabaseAgent} = require('./TwitterDabataseAgent.js');
 
 admin.initializeApp();
+const tweetAgent = new TwitterDatabaseAgent(admin.firestore());
 
 const getTwitterClient = () => {
   return new Twitter({
-    consumer_key: 'JGtdpHIr0aVISq1OihkBDPz9g',
-    consumer_secret: 'DBmRMtAqLbilmEPGSTzZqJvWqY7UULfc01EG08diKBNZe0c7tp',
-    access_token_key: '1208496905442992128-sXDtoDZipXIeDXKtPwKjJiceec05QL',
-    access_token_secret: 'YQ5VpOLvuPZDq4DTIoIw7sbtQDXluBdEJSchNj3dobyVQ'
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
   });
 }
 
 const callApi = (request, response, url) => {
-  let client = getTwitterClient();  
+  let client = getTwitterClient();
   client.get(url, {screen_name:"bts_bighit", count:10}, function(error, tweets, res) {
     if (!error) {
-      admin.firestore().collection('tweets').listDocuments().then(val => {
-        val.map((val) => {
-            val.delete()
-        })
-      })
+      tweetAgent.deleteDocuments('tweets');
       tweets.forEach(async (tweet) => {
         const embedTweet = await client.get('statuses/oembed', {id: tweet.id_str});
-        admin.firestore().collection('tweets').add({
-          author_name: embedTweet.author_name,
-          author_url: embedTweet.author_url,
-          html: embedTweet.html,
-          url: embedTweet.url
-        })
+        tweetAgent.saveDocument(embedTweet, 'tweets');
       })
       response.status(200).send(tweets);
     }
@@ -44,6 +39,12 @@ exports.updateTweets = functions.https.onRequest((request, response) => {
 });
 
 exports.getDataFromDB = functions.https.onCall(async (data, context) => {
-  const snapshot = await admin.firestore().collection(data).get()
-  return snapshot.docs.map(doc => doc.data());
+  return tweetAgent.getDocuments(data);
+})
+
+exports.scheduledFuntions = functions.pubsub.schedule('every 5 seconds').onRun((context) => {
+  const URL = 'https://us-central1-btsdashboard-d7ad5.cloudfunctions.net/updateTweets';
+  fetch(URL)
+  .then((result) => console.log(result));
+  return null;
 })
