@@ -42,7 +42,7 @@ exports.getDataFromDB = functions.https.onCall(async (data, context) => {
   return tweetAgent.getDocuments(data);
 })
 
-exports.scheduledFuntions = functions.pubsub.schedule('every 5 seconds').onRun((context) => {
+exports.refreshTweets = functions.pubsub.schedule('every day 00:00').timeZone('America/New_York').onRun((context) => {
   const URL = 'https://us-central1-btsdashboard-d7ad5.cloudfunctions.net/updateTweets';
   fetch(URL)
   .then((result) => console.log(result));
