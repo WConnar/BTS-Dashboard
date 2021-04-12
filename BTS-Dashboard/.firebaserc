@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "btsdashboard-d7ad5"
+  },
+  "targets": {
+    "btsdashboard-d7ad5": {
+      "hosting": {
+        "BTS-Dashboard": [
+          "btsdashboard-d7ad5"
+        ]
+      }
+    }
   }
 }

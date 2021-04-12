@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,9 @@ export class AppComponent {
   title = 'BTS Dashboard';
 
   successAlert = false;
+
+  constructor(private store: AngularFirestore) {}
+
 
   copyToClipboard(value: string): void {
     const tempInput = document.createElement("input");
