@@ -1,12 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-p.titlebox {
-    border: 5px solid black;
+.titlebox {
+    border: 5px solid white;
     text-align: center;
     font-size: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 7px;
     background:white;
+}
+
+.aboutbox{
+  border: 3px solid grey;
+  border-radius: 5px;
+  outline: 10px solid white;
+  padding-left:15px;
+  padding-right:15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.bufferbox{
+  border: 10px solid white;
 }
 
 buttonbox {
