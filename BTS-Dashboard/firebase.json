@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "public": "src",
+      "public": "dist",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -10,7 +10,7 @@
     },
     {
       "target": "BTS-Dashboard",
-      "public": "dist/BTS-Dashboard",
+      "public": "src",
       "ignore": [
         "**/.*"
       ],
