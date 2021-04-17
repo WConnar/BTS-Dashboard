@@ -29,7 +29,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/scripts"
+              "src/scripts",
+              "src/assets/BTS_Logo_sm.jpg"
             ],
             "styles": [
               "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",

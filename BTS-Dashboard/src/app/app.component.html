@@ -1,14 +1,7 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
+<!-- This is the top nav bar and banner image -->
 <app-nav-bar></app-nav-bar>
 
+<!-- This is the collapsable about section -->
 <div class="container-fluid">
   <div class="row">
     <div class="bufferbox">
@@ -25,7 +18,7 @@
        <app-youtube-carousel></app-youtube-carousel>
       </div>
       <div class="col-md">
-        <app-twitter-card></app-twitter-card>
+        <app-news-card></app-news-card>
       </div>
     </div>
     <!-- End First Row -->
@@ -35,43 +28,15 @@
     <!-- Second Row-->
     <div class="row">
       <div class="col-md">
-        <app-news-card></app-news-card>
+        <app-twitter-card></app-twitter-card>
       </div>
-      <div class="col-md">
-        <app-news-card></app-news-card>
-      </div>
+      
     </div>
     <!-- End Second Row-->
   </div>
-
-  <!--<button id="loginWindowButton">Log In</button>
-  <div class = "log-in-window" id="log-in-window">
-      <div class="log-in-header">
-          <div class ="title">Please login in with one of your accounts.</div>
-          <button id="loginCloseButton">&times;</button>
-      </div>
-      <div class = "log-in-body">
-          <button id="signWithGoogle">Sign in with Google</button>
-          <input id="email" type="email" placeholder="Enter your email" id="emailLogin">
-          <input id="password" type="password" placeholder="Enter your password" id="passwordlLogin">
-          <br>
-          <button id="emailSignUp">Sign up with email</button>
-          <button id="emailSignIn">Sign in with email</button>
-      </div>
-  </div>
-  <div id="overlay"></div>
-  <script src="../LoginPopup.js" defer></script>-->
 </div>
 
-
+<!-- This is the site's footer -->
 <app-site-footer></app-site-footer>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <router-outlet></router-outlet>
