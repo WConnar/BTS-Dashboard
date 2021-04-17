@@ -1,5 +1,4 @@
 async function displayTweets(){
-    let twitter = getTwitterClient();
     let getTweets = await firebase.functions().httpsCallable("getDataFromDB");
     const section = document.getElementById("tweets");
     getTweets("tweets").then(result => {
@@ -8,4 +7,3 @@ async function displayTweets(){
         })
     })
 }
-window.addEventListener("load", displayTweets(), false);

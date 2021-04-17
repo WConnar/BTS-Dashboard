@@ -26,6 +26,7 @@
     "angular-bootstrap-md": "^11.0.0",
     "animate.css": "^4.1.1",
     "browserify": "^17.0.0",
+    "chart": "^0.1.2",
     "chart.js": "^2.5.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
