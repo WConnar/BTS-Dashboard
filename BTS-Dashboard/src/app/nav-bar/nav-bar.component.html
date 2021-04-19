@@ -1,142 +1,141 @@
 <div class="bufferbox">
-    <p class="titlebox">
-      <!--<img src="assets/BTS_Logo_White.jpg" alt="BTS Logo" height=180 style="margin:10px"> -->
-      <img src="assets/Banner.jpeg" alt="Banner" width=99% style="margin:10px">
-    </p>
-  </div>
-  
-  <!--Navbar-->
-  <mdb-navbar SideClass="navbar navbar-1 navbar-dark purple-gradient sticky-top" [containerInside]="false">
-  
-      <!-- Navbar brand -->
-      <!--<mdb-navbar-brand><a class="navbar-brand" href="#">BTS Dashboard</a></mdb-navbar-brand>-->
-      
-      <!-- Collapsible content -->
-      <links>
-        <mdb-navbar-brand><a class="navbar-brand" href="#">BTS Dashboard</a></mdb-navbar-brand>
-        <!-- Links -->
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="home"></mdb-icon> Home<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="user"></mdb-icon> My Dashboard</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link waves-light" (click)="loginModal.show()" mdbWavesEffect><mdb-icon fas icon="users"></mdb-icon> Login / Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link waves-light" href="https://www.youtube.com/channel/UCLkAepWjdylmXSltofFvsYQ" mdbWavesEffect><mdb-icon fab icon="youtube"></mdb-icon> BTS Youtube</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link waves-light" href="https://twitter.com/BTS_twt" mdbWavesEffect><mdb-icon fab icon="twitter"></mdb-icon> @BTS_TWT</a>
-            </li>
-          <li class="nav-item">
-              <a class="nav-link waves-light" href="https://twitter.com/bts_bighit" mdbWavesEffect><mdb-icon fab icon="twitter"></mdb-icon> @BTS_BIGHITS</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link waves-light" href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX" mdbWavesEffect><mdb-icon fab icon="spotify"></mdb-icon> BTS Spotify</a>
-          </li>
+  <p class="titlebox">
+    <img src="assets/Banner.jpeg" alt="Banner" width=99% style="margin:10px">
+  </p>
+</div>
+
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-1 navbar-dark purple-gradient sticky-top" [containerInside]="false">
     
-        </ul>
-        <!-- Links -->
-      </links>
-      <!-- Collapsible content -->
-      
+    <!-- Collapsible content -->
+    <links>
+      <mdb-navbar-brand><a class="navbar-brand" href="#">BTS Dashboard</a></mdb-navbar-brand>
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="home"></mdb-icon> Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="user"></mdb-icon> My Dashboard</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" (click)="loginModal.show()" mdbWavesEffect><mdb-icon fas icon="users"></mdb-icon> Login / Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" href="https://www.youtube.com/channel/UCLkAepWjdylmXSltofFvsYQ" mdbWavesEffect><mdb-icon fab icon="youtube"></mdb-icon> BTS Youtube</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" href="https://twitter.com/BTS_twt" mdbWavesEffect><mdb-icon fab icon="twitter"></mdb-icon> @BTS_TWT</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" href="https://twitter.com/bts_bighit" mdbWavesEffect><mdb-icon fab icon="twitter"></mdb-icon> @BTS_BIGHITS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX" mdbWavesEffect><mdb-icon fab icon="spotify"></mdb-icon> BTS Spotify</a>
+        </li>
+  
+      </ul>
+      <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+    
 
-    </mdb-navbar>
-    <!--/.Navbar-->
+  </mdb-navbar>
+  <!--/.Navbar-->
 
-    <div mdbModal #loginModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close pull-right" aria-label="Close" (click)="loginModal.hide()">
-              <span aria-hidden="true">×</span>
-            </button>
-            <h4 class="modal-title w-100" id="myModalLabel">Sign In</h4>
-          </div>
-          <div class="modal-body">
-            <!-- Form login start-->
-            <form class="text-center border border-light p-5">
-              <!-- Email -->
-              <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+  <div mdbModal #loginModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="loginModal.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title w-100" id="myModalLabel">Sign In</h4>
+        </div>
+        <div class="modal-body">
+          <!-- Form login start-->
+          <form class="text-center border border-light p-5">
+            <!-- Email -->
+            <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
 
-              <!-- Password -->
-              <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+            <!-- Password -->
+            <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
 
-              <!-- Sign in button -->
-              <button mdbBtn gradient="purple"  class="my-4" type="submit">Sign in</button>
+            <!-- Sign in button -->
+            <button mdbBtn gradient="purple"  class="my-4" type="submit">Sign in</button>
 
-              <!-- Register -->
-              <p>
-                <button mdbBtn gradient="purple" (click)="loginModal.hide()" (click)="signupModal.show()" class="my-4" type="submit">Not a member? Register</button>
-              </p>
-              <hr>
-              <!-- Social login -->
-              <p>or sign in with:</p>
+            <!-- Register -->
+            <p>
+              <button mdbBtn gradient="purple" (click)="loginModal.hide()" (click)="signupModal.show()" class="my-4" type="submit">Not a member? Register</button>
+            </p>
+            <hr>
+            <!-- Social login -->
+            <p>or sign in with:</p>
 
-              <a type="button" class="light-blue-text mx-2">
-                <mdb-icon fab icon="google"></mdb-icon>
-              </a>
-              <a type="button" class="light-blue-text mx-2">
-                <mdb-icon fab icon="twitter"></mdb-icon>
-              </a>
-            </form>
-            <!-- Form login end-->
-          </div>
+            
+            <a type="button" class="light-blue-text mx-2">
+              <mdb-icon fab icon="google" (click)="glogin()"></mdb-icon>
+            </a>
+            
+
+            <a type="button" class="light-blue-text mx-2">
+              <mdb-icon fab icon="twitter"></mdb-icon>
+            </a>
+          </form>
+          <!-- Form login end-->
         </div>
       </div>
     </div>
+  </div>
 
-    <div mdbModal #signupModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close pull-right" aria-label="Close" (click)="signupModal.hide()">
-              <span aria-hidden="true">×</span>
-            </button>
-            <h4 class="modal-title w-100" id="myModalLabel">Sign Up</h4>
-          </div>
-          <div class="modal-body">
-            <!-- Default form register -->
-    <form class="text-center border border-light p-5">
+  <div mdbModal #signupModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="signupModal.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title w-100" id="myModalLabel">Sign Up</h4>
+        </div>
+        <div class="modal-body">
+          <!-- Default form register -->
+  <form class="text-center border border-light p-5">
 
-      <div class="form-row mb-4">
-        <div class="col">
-          <!-- First name -->
-          <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
-        </div>
-        <div class="col">
-          <!-- Last name -->
-          <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
-        </div>
+    <div class="form-row mb-4">
+      <div class="col">
+        <!-- First name -->
+        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
       </div>
+      <div class="col">
+        <!-- Last name -->
+        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+      </div>
+    </div>
 
-      <!-- E-mail -->
-      <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+    <!-- E-mail -->
+    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
 
-      <!-- Password -->
-      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-      <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-        At least 8 characters and 1 digit
-      </small>
+    <!-- Password -->
+    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+      At least 8 characters and 1 digit
+    </small>
 
-      <!-- Sign up button -->
-      <button mdbBtn gradient="purple" class="my-4" type="submit">Sign up</button>
-      <hr>
-      <!-- Social register -->
-      <p>or sign up with:</p>
+    <!-- Sign up button -->
+    <button mdbBtn gradient="purple" class="my-4" type="submit">Sign up</button>
+    <hr>
+    <!-- Social register -->
+    <p>or sign up with:</p>
 
-      <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="google"></mdb-icon>
-      </a>
-      <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="twitter"></mdb-icon>
-      </a>
-    </form>
-    <!-- Default form register -->
-          </div>
+    <a type="button" class="light-blue-text mx-2">
+      <mdb-icon fab icon="google" (click)="glogin()"></mdb-icon>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+      <mdb-icon fab icon="twitter"></mdb-icon>
+    </a>
+  </form>
+  <!-- Default form register -->
         </div>
       </div>
     </div>
+  </div>
