@@ -13,7 +13,10 @@ export class NavBarComponent {
   glogin() {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
-  glogout() {
+  tlogin() {
+    this.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider());
+  }
+  logout() {
     this.auth.signOut();
   }
 }

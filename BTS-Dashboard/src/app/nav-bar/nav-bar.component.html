@@ -3,33 +3,58 @@
     <img src="assets/Banner.jpeg" alt="Banner" width=99% style="margin:10px">
   </p>
 </div>
-
 <!--Navbar-->
 <mdb-navbar SideClass="navbar navbar-1 navbar-dark purple-gradient sticky-top" [containerInside]="false">
     
     <!-- Collapsible content -->
     <links>
-      <mdb-navbar-brand><a class="navbar-brand" href="#">BTS Dashboard</a></mdb-navbar-brand>
+      <mdb-navbar-brand><a class="navbar-brand" href="#">
+        <div *ngIf="auth.user | async as user; else elseUser">
+          Hi, {{ user.displayName }}!
+        </div>
+        <ng-template #elseUser>BTS Dashboard</ng-template>
+      </a></mdb-navbar-brand>
       <!-- Links -->
       <ul class="navbar-nav">
+        <!-- Home button -->
         <li class="nav-item active">
           <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="home"></mdb-icon> Home<span class="sr-only">(current)</span></a>
         </li>
+        <!-- Dashboard button -->
         <li class="nav-item">
+          <div *ngIf="auth.user | async as user">
             <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="user"></mdb-icon> My Dashboard</a>
+          </div>
         </li>
+        <!-- Login/Signup button -->
         <li class="nav-item">
             <a class="nav-link waves-light" (click)="loginModal.show()" mdbWavesEffect><mdb-icon fas icon="users"></mdb-icon> Login / Sign Up</a>
         </li>
+        <!-- Logout button -->
+        <li class="nav-item">
+          <div *ngIf="auth.user | async as user">
+            <a class="nav-link waves-light" (click)="logout()" mdbWavesEffect><mdb-icon fas icon="sign-out-alt"></mdb-icon> Log out</a>
+          </div>
+        </li>
+        <!-- Settings button -->
+        <li class="nav-item">
+          <div *ngIf="auth.user | async as user">
+            <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="cogs"></mdb-icon> Settings</a>
+          </div>
+        </li>
+        <!-- Youtube button -->
         <li class="nav-item">
           <a class="nav-link waves-light" href="https://www.youtube.com/channel/UCLkAepWjdylmXSltofFvsYQ" mdbWavesEffect><mdb-icon fab icon="youtube"></mdb-icon> BTS Youtube</a>
         </li>
+        <!-- twt Twitter button -->
         <li class="nav-item">
             <a class="nav-link waves-light" href="https://twitter.com/BTS_twt" mdbWavesEffect><mdb-icon fab icon="twitter"></mdb-icon> @BTS_TWT</a>
-          </li>
+        </li>
+        <!-- bighits Twitter button -->
         <li class="nav-item">
             <a class="nav-link waves-light" href="https://twitter.com/bts_bighit" mdbWavesEffect><mdb-icon fab icon="twitter"></mdb-icon> @BTS_BIGHITS</a>
         </li>
+        <!-- Spotify button -->
         <li class="nav-item">
             <a class="nav-link waves-light" href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX" mdbWavesEffect><mdb-icon fab icon="spotify"></mdb-icon> BTS Spotify</a>
         </li>
@@ -74,12 +99,12 @@
 
             
             <a type="button" class="light-blue-text mx-2">
-              <mdb-icon fab icon="google" (click)="glogin()"></mdb-icon>
+              <mdb-icon fab icon="google" (click)="glogin()" (click)="loginModal.hide()"></mdb-icon>
             </a>
             
 
             <a type="button" class="light-blue-text mx-2">
-              <mdb-icon fab icon="twitter"></mdb-icon>
+              <mdb-icon fab icon="twitter" (click)="tlogin()" (click)="loginModal.hide()"></mdb-icon>
             </a>
           </form>
           <!-- Form login end-->
@@ -128,10 +153,10 @@
     <p>or sign up with:</p>
 
     <a type="button" class="light-blue-text mx-2">
-      <mdb-icon fab icon="google" (click)="glogin()"></mdb-icon>
+      <mdb-icon fab icon="google" (click)="glogin()" (click)="signupModal.hide()"></mdb-icon>
     </a>
     <a type="button" class="light-blue-text mx-2">
-      <mdb-icon fab icon="twitter"></mdb-icon>
+      <mdb-icon fab icon="twitter" (click)="tlogin()" (click)="signupModal.hide()"></mdb-icon>
     </a>
   </form>
   <!-- Default form register -->
