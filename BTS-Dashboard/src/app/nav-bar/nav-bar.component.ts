@@ -9,7 +9,13 @@ import firebase from 'firebase/app';
 })
 export class NavBarComponent {
 
-  constructor(public auth: AngularFireAuth) { }
+  authState: any = null;
+
+  constructor(public auth: AngularFireAuth) {
+    this.auth.authState.subscribe((auth) => {
+      this.authState = auth
+    });
+   }
   glogin() {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
@@ -18,5 +24,27 @@ export class NavBarComponent {
   }
   logout() {
     this.auth.signOut();
+  }
+
+  signUp(email: string, password: string) {
+    return this.auth.createUserWithEmailAndPassword(email, password)
+      .then((user) => {
+        this.authState = user
+      })
+      .catch(error => {
+        console.log(error)
+        throw error
+      });
+  }
+
+  elogin(email: string, password: string) {
+    return this.auth.signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        this.authState = user
+      })
+      .catch(error => {
+        console.log(error)
+        throw error
+      });
   }
 }
