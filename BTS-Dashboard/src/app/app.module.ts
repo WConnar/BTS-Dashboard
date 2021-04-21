@@ -21,6 +21,7 @@ import { TwitterCardComponent } from './twitter-card/twitter-card.component';
 import { YoutubeCarouselComponent } from './youtube-carousel/youtube-carousel.component';
 import { UserComponent } from './user/user.component';
 import { DashComponent } from './dash/dash.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { DashComponent } from './dash/dash.component';
     YoutubeCarouselComponent,
     UserComponent,
     DashComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
