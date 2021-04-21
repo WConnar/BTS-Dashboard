@@ -19,6 +19,8 @@ import { NewsCardComponent } from './news-card/news-card.component';
 import { SiteFooterComponent } from './site-footer/site-footer.component';
 import { TwitterCardComponent } from './twitter-card/twitter-card.component';
 import { YoutubeCarouselComponent } from './youtube-carousel/youtube-carousel.component';
+import { UserComponent } from './user/user.component';
+import { DashComponent } from './dash/dash.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { YoutubeCarouselComponent } from './youtube-carousel/youtube-carousel.co
     SiteFooterComponent,
     TwitterCardComponent,
     YoutubeCarouselComponent,
+    UserComponent,
+    DashComponent,
   ],
   imports: [
     BrowserModule,

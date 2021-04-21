@@ -17,13 +17,13 @@
       <!-- Links -->
       <ul class="navbar-nav">
         <!-- Home button -->
-        <li class="nav-item active">
-          <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="home"></mdb-icon> Home</a>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/"><mdb-icon fas icon="home"></mdb-icon> Home</a>
         </li>
         <!-- Dashboard button -->
         <li class="nav-item">
           <div *ngIf="auth.user | async as user">
-            <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="user"></mdb-icon> My Dashboard</a>
+            <a class="nav-link waves-light" mdbWavesEffect routerLink="/user"><mdb-icon fas icon="user"></mdb-icon> My Dashboard</a>
           </div>
         </li>
         <!-- Login/Signup button -->
