@@ -14,7 +14,7 @@
         </div>
         <ng-template #elseUser>BTS Dashboard</ng-template>
       </a></mdb-navbar-brand>
-      <!-- Links -->
+      <!-- NavBar Content Begins -->
       <ul class="navbar-nav">
         <!-- Home button -->
         <li class="nav-item">
@@ -78,23 +78,23 @@
           <h4 class="modal-title w-100" id="myModalLabel">Sign In</h4>
         </div>
         <div class="modal-body">
-          <!-- Form login start-->
+          <!-- Form login start -->
           <form class="text-center border border-light p-5">
-            <!-- Email -->
-            <input type="email" id="email" class="form-control mb-4" placeholder="E-mail">
+            
+            <input type="email" id="email" class="form-control mb-4" placeholder="E-mail" name="email" [(ngModel)]="model.email" required>
 
-            <!-- Password -->
-            <input type="password" id="password" class="form-control mb-4" placeholder="Password">
+            
+            <input type="password" id="password" class="form-control mb-4" placeholder="Password" name="password" [(ngModel)]="model.password">
 
-            <!-- Sign in button -->
-            <button mdbBtn gradient="purple"  class="my-4" type="submit">Sign in</button>
+            
+            <button mdbBtn gradient="purple"  class="my-4" type="submit" (click)="elogin(model.email,model.password)">Sign in</button>
 
-            <!-- Register -->
+            
             <p>
               <button mdbBtn gradient="purple" (click)="loginModal.hide()" (click)="signupModal.show()" class="my-4" type="submit">Not a member? Register</button>
             </p>
             <hr>
-            <!-- Social login -->
+            
             <p>or sign in with:</p>
 
             
@@ -107,7 +107,8 @@
               <mdb-icon fab icon="twitter" (click)="tlogin()" (click)="loginModal.hide()"></mdb-icon>
             </a>
           </form>
-          <!-- Form login end-->
+          <!--Form login end-->
+
         </div>
       </div>
     </div>
@@ -138,16 +139,16 @@
     </div>
 
     <!-- E-mail -->
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail"  name="email" [(ngModel)]="model.email" required>
 
     <!-- Password -->
-    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock"  name="password" [(ngModel)]="model.password">
     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
       At least 8 characters and 1 digit
     </small>
 
     <!-- Sign up button -->
-    <button mdbBtn gradient="purple" class="my-4" type="submit">Sign up</button>
+    <button mdbBtn gradient="purple" class="my-4" type="submit" (click)="signUp(model.email,model.password)">Sign up</button>
     <hr>
     <!-- Social register -->
     <p>or sign up with:</p>
