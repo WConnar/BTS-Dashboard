@@ -22,23 +22,25 @@
         </li>
         <!-- Dashboard button -->
         <li class="nav-item">
-          <div *ngIf="auth.user | async as user">
+          <div *ngIf="loggedIn">
             <a class="nav-link waves-light" mdbWavesEffect routerLink="/user"><mdb-icon fas icon="user"></mdb-icon> My Dashboard</a>
           </div>
         </li>
         <!-- Login/Signup button -->
         <li class="nav-item">
-            <a class="nav-link waves-light" (click)="loginModal.show()" mdbWavesEffect><mdb-icon fas icon="users"></mdb-icon> Login / Sign Up</a>
+          <div *ngIf="notLoggedIn">
+            <a class="nav-link waves-light" (click)="loginModal.show()" mdbWavesEffect routerLink="/"><mdb-icon fas icon="users"></mdb-icon> Login / Sign Up</a>
+          </div>
         </li>
         <!-- Logout button -->
         <li class="nav-item">
-          <div *ngIf="auth.user | async as user">
-            <a class="nav-link waves-light" (click)="logout()" mdbWavesEffect><mdb-icon fas icon="sign-out-alt"></mdb-icon> Log out</a>
+          <div *ngIf="loggedIn">
+            <a class="nav-link waves-light" (click)="logout()" mdbWavesEffect routerLink="/"><mdb-icon fas icon="sign-out-alt"></mdb-icon> Log out</a>
           </div>
         </li>
         <!-- Settings button -->
         <li class="nav-item">
-          <div *ngIf="auth.user | async as user">
+          <div *ngIf="loggedIn">
             <a class="nav-link waves-light" mdbWavesEffect routerLink="/settings"><mdb-icon fas icon="cogs"></mdb-icon> Settings</a>
           </div>
         </li>
@@ -58,13 +60,9 @@
         <li class="nav-item">
             <a class="nav-link waves-light" href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX" mdbWavesEffect><mdb-icon fab icon="spotify"></mdb-icon> BTS Spotify</a>
         </li>
-  
       </ul>
-      <!-- Links -->
     </links>
-    <!-- Collapsible content -->
-    
-
+    <!-- Collapsible content ends -->
   </mdb-navbar>
   <!--/.Navbar-->
 
@@ -97,18 +95,15 @@
             
             <p>or sign in with:</p>
 
-            
             <a type="button" class="light-blue-text mx-2">
               <mdb-icon fab icon="google" (click)="glogin()" (click)="loginModal.hide()"></mdb-icon>
             </a>
-            
 
             <a type="button" class="light-blue-text mx-2">
               <mdb-icon fab icon="twitter" (click)="tlogin()" (click)="loginModal.hide()"></mdb-icon>
             </a>
           </form>
           <!--Form login end-->
-
         </div>
       </div>
     </div>
