@@ -22,6 +22,7 @@ import { YoutubeCarouselComponent } from './youtube-carousel/youtube-carousel.co
 import { UserComponent } from './user/user.component';
 import { DashComponent } from './dash/dash.component';
 import { SettingsComponent } from './settings/settings.component';
+import { SpotifyCardComponent } from './spotify-card/spotify-card.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { SettingsComponent } from './settings/settings.component';
     UserComponent,
     DashComponent,
     SettingsComponent,
+    SpotifyCardComponent,
   ],
   imports: [
     BrowserModule,
