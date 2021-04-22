@@ -32,16 +32,16 @@
             <a class="nav-link waves-light" (click)="loginModal.show()" mdbWavesEffect routerLink="/"><mdb-icon fas icon="users"></mdb-icon> Login / Sign Up</a>
           </div>
         </li>
-        <!-- Logout button -->
-        <li class="nav-item">
-          <div *ngIf="loggedIn">
-            <a class="nav-link waves-light" (click)="logout()" mdbWavesEffect routerLink="/"><mdb-icon fas icon="sign-out-alt"></mdb-icon> Log out</a>
-          </div>
-        </li>
         <!-- Settings button -->
         <li class="nav-item">
           <div *ngIf="loggedIn">
             <a class="nav-link waves-light" mdbWavesEffect routerLink="/settings"><mdb-icon fas icon="cogs"></mdb-icon> Settings</a>
+          </div>
+        </li>
+        <!-- Logout button -->
+        <li class="nav-item">
+          <div *ngIf="loggedIn">
+            <a class="nav-link waves-light" (click)="logout()" mdbWavesEffect routerLink="/"><mdb-icon fas icon="sign-out-alt"></mdb-icon> Log out</a>
           </div>
         </li>
         <!-- Youtube button -->
