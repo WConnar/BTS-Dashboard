@@ -2,44 +2,36 @@ require('dotenv').config();
 const fetch = require("node-fetch");
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const Twitter = require('twitter');
 const cors = require('cors')({origin: true});
 const {TwitterDatabaseAgent} = require('./TwitterDabataseAgent.js');
+const {TwitterAPIAgent} = require("./TwitterAPIAgent.js");
+const {TweetUpdater} = require("./TweetUpdater.js");
+const {getTwitterClient} = require("./getTwitterClient.js");
 
 admin.initializeApp();
-const tweetAgent = new TwitterDatabaseAgent(admin.firestore());
+const client = getTwitterClient();
+const TD_Agent = new TwitterDatabaseAgent(admin.firestore());
+const TAPI_Agent = new TwitterAPIAgent(client);
+const tweetHandler = new TweetUpdater(TD_Agent, TAPI_Agent);
 
-const getTwitterClient = () => {
-  return new Twitter({
-    consumer_key: process.env.TWITTER_CONSUMER_KEY,
-    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-    access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+exports.updateMainTweets = functions.https.onRequest((request, response) => {
+  cors(request, response, async () => {
+    let url = 'statuses/user_timeline';
+    let params = {screen_name:"bts_bighit", count:10};
+    tweetHandler.updateTweets(url, params, "tweets", response)
   });
-}
+});
 
-const callApi = (request, response, url) => {
-  let client = getTwitterClient();
-  client.get(url, {screen_name:"bts_bighit", count:10}, function(error, tweets, res) {
-    if (!error) {
-      tweetAgent.deleteDocuments('tweets');
-      tweets.forEach(async (tweet) => {
-        const embedTweet = await client.get('statuses/oembed', {id: tweet.id_str});
-        tweetAgent.saveDocument(embedTweet, 'tweets');
-      })
-      response.status(200).send(tweets);
-    }
-  });
-}
-
-exports.updateTweets = functions.https.onRequest((request, response) => {
-  cors(request, response, () => {
-    callApi(request, response, 'statuses/user_timeline');
+exports.updateTrendingTweets = functions.https.onRequest((request, response) => {
+  cors(request, response, async () => {
+    let url = 'search/tweets';
+    let params = {q:"#bts", count:10};
+    tweetHandler.updateTweets(url, params, "#bts", response);
   });
 });
 
 exports.getDataFromDB = functions.https.onCall(async (data, context) => {
-  return tweetAgent.getDocuments(data);
+  return TDAgent.getDocuments(data);
 })
 
 exports.refreshTweets = functions.pubsub.schedule('every day 00:00').timeZone('America/New_York').onRun((context) => {

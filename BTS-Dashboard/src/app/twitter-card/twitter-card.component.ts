@@ -11,7 +11,7 @@ export class TwitterCardComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit(): void {
-    displayTweets();
+    displayTweets("tweets", "tweets");
   }
 
   ngAfterViewInit() {
