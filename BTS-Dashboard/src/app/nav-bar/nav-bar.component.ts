@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
+import { Subject } from 'rxjs';
 
 export class User {
   public email!: string;
@@ -19,28 +20,30 @@ export class NavBarComponent {
 
   authState: any = null;
 
-  notLoggedIn: boolean = true;
   loggedIn: boolean = false;
+
+  errorMessage: any = null;
+
+  accountSuccess: boolean = false;
 
   constructor(public auth: AngularFireAuth) {
     this.auth.authState.subscribe((auth) => {
       this.authState = auth
     });
+    
    }
   glogin() {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     this.loggedIn = true;
-    this.notLoggedIn = false;
   }
   tlogin() {
     this.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider());
     this.loggedIn = true;
-    this.notLoggedIn = false;
   }
   logout() {
     this.auth.signOut();
     this.loggedIn = false;
-    this.notLoggedIn = true;
+    this.accountSuccess = false;
   }
 
   signUp(email: string, password: string) {
@@ -48,9 +51,12 @@ export class NavBarComponent {
       .then((user) => {
         this.authState = user;
         this.loggedIn = true;
-        this.notLoggedIn = false;
+        this.accountSuccess = true;
+        this.errorMessage = null;
       })
       .catch(error => {
+        this.errorMessage = error;
+        this.accountSuccess = false;
         console.log(error)
         throw error
       });
@@ -61,9 +67,12 @@ export class NavBarComponent {
       .then((user) => {
         this.authState = user;
         this.loggedIn = true;
-        this.notLoggedIn = false;
+        this.accountSuccess = true;
+        this.errorMessage = null;
       })
       .catch(error => {
+        this.errorMessage = error;
+        this.accountSuccess = false;
         console.log(error)
         throw error
       });

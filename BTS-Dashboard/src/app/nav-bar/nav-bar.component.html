@@ -28,7 +28,7 @@
         </li>
         <!-- Login/Signup button -->
         <li class="nav-item">
-          <div *ngIf="notLoggedIn">
+          <div *ngIf="!loggedIn">
             <a class="nav-link waves-light" (click)="loginModal.show()" mdbWavesEffect routerLink="/"><mdb-icon fas icon="users"></mdb-icon> Login / Sign Up</a>
           </div>
         </li>
@@ -46,23 +46,24 @@
         </li>
         <!-- Youtube button -->
         <li class="nav-item">
-          <a class="nav-link waves-light" href="https://www.youtube.com/channel/UCLkAepWjdylmXSltofFvsYQ" mdbWavesEffect><mdb-icon fab icon="youtube"></mdb-icon> BTS Youtube</a>
+          <a class="nav-link waves-light" href="https://www.youtube.com/channel/UCLkAepWjdylmXSltofFvsYQ" mdbWavesEffect target="_blank" rel="noreferrer noopener"><mdb-icon fab icon="youtube"></mdb-icon> BTS Youtube</a>
         </li>
         <!-- twt Twitter button -->
         <li class="nav-item">
-            <a class="nav-link waves-light" href="https://twitter.com/BTS_twt" mdbWavesEffect><mdb-icon fab icon="twitter"></mdb-icon> @BTS_TWT</a>
+            <a class="nav-link waves-light" href="https://twitter.com/BTS_twt" mdbWavesEffect target="_blank" rel="noreferrer noopener"><mdb-icon fab icon="twitter"></mdb-icon> @BTS_TWT</a>
         </li>
         <!-- bighits Twitter button -->
         <li class="nav-item">
-            <a class="nav-link waves-light" href="https://twitter.com/bts_bighit" mdbWavesEffect><mdb-icon fab icon="twitter"></mdb-icon> @BTS_BIGHITS</a>
+            <a class="nav-link waves-light" href="https://twitter.com/bts_bighit" mdbWavesEffect target="_blank" rel="noreferrer noopener"><mdb-icon fab icon="twitter"></mdb-icon> @BTS_BIGHITS</a>
         </li>
         <!-- Spotify button -->
         <li class="nav-item">
-            <a class="nav-link waves-light" href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX" mdbWavesEffect><mdb-icon fab icon="spotify"></mdb-icon> BTS Spotify</a>
+            <a class="nav-link waves-light" href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX" mdbWavesEffect target="_blank" rel="noreferrer noopener"><mdb-icon fab icon="spotify"></mdb-icon> BTS Spotify</a>
         </li>
       </ul>
     </links>
     <!-- Collapsible content ends -->
+
   </mdb-navbar>
   <!--/.Navbar-->
 
@@ -83,16 +84,15 @@
 
             
             <input type="password" id="password" class="form-control mb-4" placeholder="Password" name="password" [(ngModel)]="model.password">
-
+            <p *ngIf="errorMessage"><span class="deep-orange-text">{{errorMessage}}</span></p>
+            <p *ngIf="accountSuccess"><span class="teal-text">You have logged in! You may now close this window.</span></p>
             
             <button mdbBtn gradient="purple"  class="my-4" type="submit" (click)="elogin(model.email,model.password)">Sign in</button>
-
             
             <p>
               <button mdbBtn gradient="purple" (click)="loginModal.hide()" (click)="signupModal.show()" class="my-4" type="submit">Not a member? Register</button>
             </p>
             <hr>
-            
             <p>or sign in with:</p>
 
             <a type="button" class="light-blue-text mx-2">
@@ -122,26 +122,16 @@
           <!-- Default form register -->
   <form class="text-center border border-light p-5">
 
-    <div class="form-row mb-4">
-      <div class="col">
-        <!-- First name -->
-        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
-      </div>
-      <div class="col">
-        <!-- Last name -->
-        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
-      </div>
-    </div>
-
     <!-- E-mail -->
     <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail"  name="email" [(ngModel)]="model.email" required>
 
     <!-- Password -->
     <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock"  name="password" [(ngModel)]="model.password">
     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-      At least 8 characters and 1 digit
+      At least 6 characters, please
     </small>
-
+    <p *ngIf="errorMessage"><span class="deep-orange-text">{{errorMessage}}</span></p>
+    <p *ngIf="accountSuccess"><span class="teal-text">You have created an account! You may now close this window.</span></p>
     <!-- Sign up button -->
     <button mdbBtn gradient="purple" class="my-4" type="submit" (click)="signUp(model.email,model.password)">Sign up</button>
     <hr>
