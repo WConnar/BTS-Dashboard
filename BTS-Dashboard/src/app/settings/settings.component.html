@@ -5,7 +5,8 @@
             <mdb-card-body style="text-align: center;">
                 <mdb-card-title><p>Preferences</p></mdb-card-title>
                 <mdb-card-text>Select what you want to have on your personal page</mdb-card-text>
-                <button type="button" mdbBtn gradient="purple" mdbWavesEffect routerLink="/user">Save</button>
+                <button type="button" mdbBtn gradient="purple" mdbWavesEffect (click)="saveThis()" routerLink="/user">Save & Return</button>
+                <p>Testing statements, remove later: {{trendingTweets}},{{timeTweets}},{{regionTweets}},{{timeSpotify}},{{regionSpotify}}</p>
             </mdb-card-body>
         </mdb-card>
     </div>
@@ -16,9 +17,9 @@
             <mdb-card-body>
                 <mdb-card-title><p>Twitter</p></mdb-card-title>
                 <mdb-card-text>
-                    <p><mat-checkbox color="primary">Top trending tweets</mat-checkbox></p>
-                    <p><mat-checkbox color="primary">Activity by region</mat-checkbox></p>
-                    <p><mat-checkbox color="primary">Activity by time</mat-checkbox></p>
+                    <p><mat-checkbox color="primary" (change)="onChanged(trendingTweetsName,$event.checked)">{{trendingTweetsName}}</mat-checkbox></p>
+                    <p><mat-checkbox color="primary" (change)="onChanged(regionTweetsName,$event.checked)">{{regionTweetsName}}</mat-checkbox></p>
+                    <p><mat-checkbox color="primary" (change)="onChanged(timeTweetsName,$event.checked)">{{timeTweetsName}}</mat-checkbox></p>
                 </mdb-card-text>
             </mdb-card-body>
         </mdb-card>
@@ -28,8 +29,8 @@
             <mdb-card-body>
                 <mdb-card-title><p>Spotify</p></mdb-card-title>
                 <mdb-card-text>
-                    <p><mat-checkbox color="primary">Top trending tracks by region</mat-checkbox></p>
-                    <p><mat-checkbox color="primary">Streams over time</mat-checkbox></p>
+                    <p><mat-checkbox color="primary" (change)="onChanged(regionSpotifyName,$event.checked)">{{regionSpotifyName}}</mat-checkbox></p>
+                    <p><mat-checkbox color="primary" (change)="onChanged(timeSpotifyName,$event.checked)">{{timeSpotifyName}}</mat-checkbox></p>
                 </mdb-card-text>
             </mdb-card-body>
         </mdb-card>
