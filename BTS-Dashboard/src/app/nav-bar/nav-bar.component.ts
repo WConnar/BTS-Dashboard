@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
-import { Subject } from 'rxjs';
 
 export class User {
   public email!: string;

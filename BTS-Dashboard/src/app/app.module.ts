@@ -16,7 +16,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutSectionComponent } from './about-section/about-section.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { NewsCardComponent } from './news-card/news-card.component';
 import { SiteFooterComponent } from './site-footer/site-footer.component';
 import { TwitterCardComponent } from './twitter-card/twitter-card.component';
 import { YoutubeCarouselComponent } from './youtube-carousel/youtube-carousel.component';
@@ -32,7 +31,6 @@ import { TrendingTweetsComponent } from './user-components/trending-tweets/trend
     AppComponent,
     AboutSectionComponent,
     NavBarComponent,
-    NewsCardComponent,
     SiteFooterComponent,
     TwitterCardComponent,
     YoutubeCarouselComponent,

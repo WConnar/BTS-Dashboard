@@ -22,7 +22,7 @@
         </li>
         <!-- Dashboard button -->
         <li class="nav-item">
-          <div *ngIf="loggedIn">
+          <div *ngIf="auth.user | async as user;">
             <a class="nav-link waves-light" mdbWavesEffect routerLink="/user"><mdb-icon fas icon="user"></mdb-icon> My Dashboard</a>
           </div>
         </li>
@@ -34,7 +34,7 @@
         </li>
         <!-- Logout button -->
         <li class="nav-item">
-          <div *ngIf="loggedIn">
+          <div *ngIf="auth.user | async as user;">
             <a class="nav-link waves-light" (click)="logout()" mdbWavesEffect routerLink="/"><mdb-icon fas icon="sign-out-alt"></mdb-icon> Log out</a>
           </div>
         </li>
