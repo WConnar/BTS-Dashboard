@@ -23,6 +23,7 @@ import { UserComponent } from './user/user.component';
 import { DashComponent } from './dash/dash.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SpotifyCardComponent } from './spotify-card/spotify-card.component';
+import { TrendingTweetsComponent } from './user-components/trending-tweets/trending-tweets.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { SpotifyCardComponent } from './spotify-card/spotify-card.component';
     DashComponent,
     SettingsComponent,
     SpotifyCardComponent,
+    TrendingTweetsComponent,
   ],
   imports: [
     BrowserModule,
