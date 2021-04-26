@@ -24,6 +24,10 @@ import { DashComponent } from './dash/dash.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SpotifyCardComponent } from './spotify-card/spotify-card.component';
 import { TrendingTweetsComponent } from './user-components/trending-tweets/trending-tweets.component';
+import { RegionalTweetsComponent } from './user-components/regional-tweets/regional-tweets.component';
+import { TimeTweetsComponent } from './user-components/time-tweets/time-tweets.component';
+import { TimeSpotifyComponent } from './user-components/time-spotify/time-spotify.component';
+import { RegionalSpotifyComponent } from './user-components/regional-spotify/regional-spotify.component';
 
 
 @NgModule({
@@ -39,6 +43,10 @@ import { TrendingTweetsComponent } from './user-components/trending-tweets/trend
     SettingsComponent,
     SpotifyCardComponent,
     TrendingTweetsComponent,
+    RegionalTweetsComponent,
+    TimeTweetsComponent,
+    TimeSpotifyComponent,
+    RegionalSpotifyComponent,
   ],
   imports: [
     BrowserModule,
