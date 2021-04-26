@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 export class User {
   public email!: string;
   public password!: string;
- 
+  public name!: string;
 }
 
 @Component({
@@ -17,6 +17,8 @@ export class User {
 export class NavBarComponent {
 
   model = new User();
+
+  newUserName: string = "";
 
   authState: any = null;
 
@@ -46,13 +48,20 @@ export class NavBarComponent {
     this.accountSuccess = false;
   }
 
-  signUp(email: string, password: string) {
+  signUp(email: string, password: string, name: string) {
     return this.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => {
         this.authState = user;
+        this.newUserName = name;
         this.loggedIn = true;
         this.accountSuccess = true;
         this.errorMessage = null;
+        var theCurrentUser = firebase.auth().currentUser;
+        if(theCurrentUser){
+          theCurrentUser.updateProfile({
+            displayName: this.newUserName,
+          })
+        }
       })
       .catch(error => {
         this.errorMessage = error;
