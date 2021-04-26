@@ -1,5 +1,10 @@
 const Twitter = require('twitter');
-
+/**
+ * This function creates a new Twitter API Object which can be used for
+ * making calls. Twitter API keys used to create this object are hidden in the
+ * .env file.
+ * @returns A Twitter API object.
+ */
 const getTwitterClient = () => {
     return new Twitter({
       consumer_key: process.env.TWITTER_CONSUMER_KEY,
