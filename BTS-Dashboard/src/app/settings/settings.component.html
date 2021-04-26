@@ -1,1 +1,37 @@
-<p>This is the settings page!</p>
+<div class="container-fluid">
+    <div class="bufferbox">
+        <!-- Top card -->
+        <mdb-card>
+            <mdb-card-body style="text-align: center;">
+                <mdb-card-title><p>Preferences</p></mdb-card-title>
+                <mdb-card-text>Select what you want to have on your personal page</mdb-card-text>
+                <button type="button" mdbBtn gradient="purple" mdbWavesEffect routerLink="/user">Save</button>
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+
+    <div class="card-deck bufferbox">
+        <!-- Twitter preferences card -->
+        <mdb-card>
+            <mdb-card-body>
+                <mdb-card-title><p>Twitter</p></mdb-card-title>
+                <mdb-card-text>
+                    <p><mat-checkbox color="primary">Top trending tweets</mat-checkbox></p>
+                    <p><mat-checkbox color="primary">Activity by region</mat-checkbox></p>
+                    <p><mat-checkbox color="primary">Activity by time</mat-checkbox></p>
+                </mdb-card-text>
+            </mdb-card-body>
+        </mdb-card>
+
+        <!-- Spotify preferences card-->
+        <mdb-card>
+            <mdb-card-body>
+                <mdb-card-title><p>Spotify</p></mdb-card-title>
+                <mdb-card-text>
+                    <p><mat-checkbox color="primary">Top trending tracks by region</mat-checkbox></p>
+                    <p><mat-checkbox color="primary">Streams over time</mat-checkbox></p>
+                </mdb-card-text>
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+</div>

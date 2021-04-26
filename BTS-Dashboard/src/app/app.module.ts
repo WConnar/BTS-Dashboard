@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule } from '@angular/forms';
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
 
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
@@ -47,6 +48,7 @@ import { TrendingTweetsComponent } from './user-components/trending-tweets/trend
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
+    MatCheckboxModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
