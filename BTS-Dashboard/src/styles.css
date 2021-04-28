@@ -7,6 +7,12 @@
     background:white;
 }
 
+.scroll-box {
+  overflow-y: scroll;
+  height: 350px;
+  padding: 1rem
+}
+
 .aboutbox{
   border: 3px solid grey;
   border-radius: 5px;
@@ -19,32 +25,6 @@
 
 .bufferbox{
   border: 10px solid white;
-}
-
-buttonbox {
-  border: 2px solid black;
-  text-align: left;
-  padding: 5px;
-  width:auto;
-  border-radius: 10px;
-  box-shadow: 2px 4px 4px 0px  grey;
-}
-
-buttonbox2 {
-  border: 2px solid black;
-  text-align: left;
-  padding: 5px;
-  width:auto;
-  border-radius: 10px;
-  box-shadow: 2px 4px 4px 0px  #4a2699;
-}
-
-buttonboxpressed{
-  border: 2px solid black;
-  text-align: left;
-  padding:5px;
-  border-radius: 10px;
-  box-shadow: inset 2px 4px 4px 0px  grey;
 }
 
 .column {

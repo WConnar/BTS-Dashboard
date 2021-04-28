@@ -2,11 +2,36 @@
 <div *ngIf="auth.user | async as user">
     Hi, {{ user.displayName }}!
   </div>
-<p class="container-fluid">
+<div class="container-fluid">
     <button type="button" mdbBtn gradient="purple" mdbWavesEffect routerLink="/settings"><mdb-icon fas icon="cogs"></mdb-icon> Preferences</button>
-    <app-trending-tweets></app-trending-tweets>
-    <app-regional-spotify></app-regional-spotify>
-    <app-regional-tweets></app-regional-tweets>
-    <app-time-spotify></app-time-spotify>
-    <app-time-tweets></app-time-tweets>
-</p>
+    <div class="bufferbox" *ngIf="empty">Hey! Looks like you haven't selected anything to be displayed here yet. Why don't you click on preferences and pick out some stuff?</div>
+    <!-- Trending Tweets row-->
+    <div class="bufferbox row">
+      <div class="col">
+          <div *ngIf="showTrending">
+            <app-trending-tweets></app-trending-tweets>
+          </div>
+      </div>
+    </div>
+
+    <!-- Regional row-->
+    <div class="bufferbox row">
+      <div class="col" *ngIf="showSpotifyRegion">
+        <app-regional-spotify></app-regional-spotify>
+      </div>
+      <div class="col" *ngIf="showTwitterRegion">
+        <app-regional-tweets></app-regional-tweets>
+      </div>
+    </div>
+
+    <!-- Time row -->
+    <div class="bufferbox row">
+        <div class="col" *ngIf="showSpotifyTime">
+          <app-time-spotify></app-time-spotify>
+        </div>
+        <div class="col" *ngIf="showTwitterTime">
+          <app-time-tweets></app-time-tweets>
+        </div>
+    </div>
+
+</div>
