@@ -21,8 +21,6 @@ export class NavBarComponent {
 
   authState: any = null;
 
-  loggedIn: boolean = false;
-
   errorMessage: any = null;
 
   accountSuccess: boolean = false;
@@ -35,15 +33,12 @@ export class NavBarComponent {
    }
   glogin() {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    this.loggedIn = true;
   }
   tlogin() {
     this.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider());
-    this.loggedIn = true;
   }
   logout() {
     this.auth.signOut();
-    this.loggedIn = false;
     this.accountSuccess = false;
   }
 
@@ -52,7 +47,6 @@ export class NavBarComponent {
       .then((user) => {
         this.authState = user;
         this.newUserName = name;
-        this.loggedIn = true;
         this.accountSuccess = true;
         this.errorMessage = null;
         var theCurrentUser = firebase.auth().currentUser;
@@ -74,7 +68,6 @@ export class NavBarComponent {
     return this.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
         this.authState = user;
-        this.loggedIn = true;
         this.accountSuccess = true;
         this.errorMessage = null;
       })
@@ -84,5 +77,14 @@ export class NavBarComponent {
         console.log(error)
         throw error
       });
+  }
+
+  isLoggedIn(){
+    if(firebase.auth().currentUser){
+      return true;
+    }
+    else{
+      return false
+    }
   }
 }
