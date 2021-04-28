@@ -17,10 +17,13 @@ class TwitterDatabaseAgent extends DatabaseAgent{
      */
     async saveDocument(tweet, collection){
         this.database.collection(collection).add({
+            /*
             author_name: tweet.author_name,
             author_url: tweet.author_url,
             html: tweet.html,
             url: tweet.url
+            */
+           data: tweet
         })
     }
 }

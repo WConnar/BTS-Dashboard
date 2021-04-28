@@ -32,7 +32,7 @@ exports.updateMainTweets = functions.https.onRequest((request, response) => {
 exports.updateTrendingTweets = functions.https.onRequest((request, response) => {
   cors(request, response, async () => {
     let url = 'search/tweets';
-    let params = {q:"#bts", count:10};
+    let params = {q:"#bts", count:10, response_type:"popular"};
     tweetHandler.updateTweets(url, params, "#bts", response)
   });
 });
@@ -43,7 +43,7 @@ exports.getDataFromDB = functions.https.onCall(async (data, context) => {
 })
 
 //firebase scheduled function for updating main and user page tweets
-exports.refreshTweets = functions.pubsub.schedule('every day 00:00').timeZone('America/New_York').onRun((context) => {
+exports.refreshTweets = functions.pubsub.schedule('every 24 hours').timeZone('America/New_York').onRun((context) => {
   const mainTweets = 'https://us-central1-btsdashboard-d7ad5.cloudfunctions.net/updateMainTweets';
   const trendingTweets = 'https://us-central1-btsdashboard-d7ad5.cloudfunctions.net/updateTrendingTweets';
   fetch(mainTweets)
