@@ -1,3 +1,7 @@
+<p>Testing Statements:</p>
+<div *ngIf="auth.user | async as user">
+    Hi, {{ user.displayName }}!
+  </div>
 <p class="container-fluid">
     <button type="button" mdbBtn gradient="purple" mdbWavesEffect routerLink="/settings"><mdb-icon fas icon="cogs"></mdb-icon> Preferences</button>
     <app-trending-tweets></app-trending-tweets>

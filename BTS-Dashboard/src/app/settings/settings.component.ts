@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-settings',
@@ -14,14 +17,14 @@ export class SettingsComponent{
   regionSpotifyName: string = "Top trending tracks by region";
   timeSpotifyName: string = "Streams over time";
 
-  trendingTweets: boolean = false;
+  trendingTweets: boolean = true;
   regionTweets: boolean = false;
   timeTweets: boolean = false;
 
   regionSpotify: boolean = false;
   timeSpotify: boolean = false;
 
-  constructor() { }
+  constructor(public auth: AngularFireAuth) { }
 
   onChanged(name: string, isChecked: boolean){
     if(name == this.trendingTweetsName){
