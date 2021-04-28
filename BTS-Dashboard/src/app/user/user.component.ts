@@ -1,32 +1,24 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-declare const displayTweets:any;
+import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit, AfterViewInit {
+export class UserComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public auth: AngularFireAuth,
+    public router: Router,
+  ) { }
 
   ngOnInit(): void {
-    displayTweets("trendingTweets", "#bts");
-  }
-
-  ngAfterViewInit() {
-    // Tweets
-    let ngJs: any;
-    const ngFjs = document.getElementsByTagName('script')[0];
-    const ngP = 'https';
-
-    if (!document.getElementById('twitter-wjs')) {
-      ngJs = document.createElement('script');
-      ngJs.id = 'twitter-wjs';
-      ngJs.src = ngP + '://platform.twitter.com/widgets.js';
-      ngFjs.parentNode!.insertBefore(ngJs, ngFjs);
-
-    }
+  
   }
 
 }
+
+
