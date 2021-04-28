@@ -17,13 +17,10 @@ export class TwitterCardComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     let ngJs: any;
     const ngFjs = document.getElementsByTagName('script')[0];
-
-    if (!document.getElementById('twitter-wjs')) {
-      console.log("No element");
-      ngJs = document.createElement('script');
-      ngJs.id = 'twitter-wjs';
-      ngJs.src = 'https://platform.twitter.com/widgets.js';
-      ngFjs.parentNode!.insertBefore(ngJs, ngFjs);
-    }
+    console.log("No element");
+    ngJs = document.createElement('script');
+    ngJs.id = 'twitter-wjs';
+    ngJs.src = 'https://platform.twitter.com/widgets.js';
+    ngFjs.parentNode!.insertBefore(ngJs, ngFjs);
   }
 }

@@ -21,6 +21,15 @@ class TweetUpdater{
      * and send whatever data we receive
      */
     async updateTweets(url, params, collection, response){
+        this.TD_Agent.deleteDocuments(collection);
+        this.TAPI_Agent.get(url,params)
+        .then(async(data) => {
+            for(let index = 0; index < data.length; index++){
+                this.TD_Agent.saveDocument(data[index], collection);
+            }
+            response.status(200).send(data);
+        });
+        /*
         let tweetData = await this.TAPI_Agent.get(url, params);
         this.TD_Agent.deleteDocuments(collection);
         this.TAPI_Agent.embedTweets(tweetData)
@@ -29,7 +38,7 @@ class TweetUpdater{
                 this.TD_Agent.saveDocument(data[index], collection);
             }
             response.status(200).send(data);
-        });
+        });*/
     }
 }
 
