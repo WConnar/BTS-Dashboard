@@ -7,17 +7,28 @@ const cors = require('cors')({origin: true});
 
 //Import neeeded classes
 const {TwitterDatabaseAgent} = require('./TwitterDabataseAgent.js');
+const {SpotifyDatabaseAgent} = require('./SpotifyDatabaseAgent.js');
 const {TwitterAPIAgent} = require("./TwitterAPIAgent.js");
 const {TweetUpdater} = require("./TweetUpdater.js");
 const {getTwitterClient} = require("./getTwitterClient.js");
+const {getSpotifyClient} = require("./getSpotifyClient.js");
+const {SpotifyTopTracks} = require("./SpotifyTopTracks.js");
 
 //initialize the firebase app
 admin.initializeApp();
 //Instantiate needed classes
 const client = getTwitterClient();
+const SpotifyClient = getSpotifyClient();
 const TD_Agent = new TwitterDatabaseAgent(admin.firestore());
+const SD_Agent = new SpotifyDatabaseAgent(admin.firestore());
 const TAPI_Agent = new TwitterAPIAgent(client);
 const tweetHandler = new TweetUpdater(TD_Agent, TAPI_Agent);
+const SpotifyTracker = new SpotifyTopTracks(SpotifyClient, SD_Agent);
+
+exports.getTopTracks = functions.https.onCall(async(context) =>{
+  SpotifyTracker.getTracks();
+
+})
 
 //firebase request function to update tweets that will be displayed on the main page
 exports.updateMainTweets = functions.https.onRequest((request, response) => {

@@ -29,7 +29,7 @@ import { TimeTweetsComponent } from './user-components/time-tweets/time-tweets.c
 import { TimeSpotifyComponent } from './user-components/time-spotify/time-spotify.component';
 import { RegionalSpotifyComponent } from './user-components/regional-spotify/regional-spotify.component';
 
-import {NgxTweetModule} from "ngx-tweet";
+
 
 
 @NgModule({
@@ -61,7 +61,7 @@ import {NgxTweetModule} from "ngx-tweet";
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    NgxTweetModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
