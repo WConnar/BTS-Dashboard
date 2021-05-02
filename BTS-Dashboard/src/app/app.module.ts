@@ -26,8 +26,9 @@ import { SpotifyCardComponent } from './spotify-card/spotify-card.component';
 import { TrendingTweetsComponent } from './user-components/trending-tweets/trending-tweets.component';
 import { RegionalTweetsComponent } from './user-components/regional-tweets/regional-tweets.component';
 import { TimeTweetsComponent } from './user-components/time-tweets/time-tweets.component';
-import { TimeSpotifyComponent } from './user-components/time-spotify/time-spotify.component';
 import { RegionalSpotifyComponent } from './user-components/regional-spotify/regional-spotify.component';
+import { TwitterLikesComponent } from './user-components/twitter-likes/twitter-likes.component';
+import { TwitterRetweetsComponent } from './user-components/twitter-retweets/twitter-retweets.component';
 
 
 
@@ -47,8 +48,9 @@ import { RegionalSpotifyComponent } from './user-components/regional-spotify/reg
     TrendingTweetsComponent,
     RegionalTweetsComponent,
     TimeTweetsComponent,
-    TimeSpotifyComponent,
     RegionalSpotifyComponent,
+    TwitterLikesComponent,
+    TwitterRetweetsComponent,
   ],
   imports: [
     BrowserModule,

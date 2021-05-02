@@ -13,7 +13,8 @@ export class UserComponent implements OnInit {
   showTwitterRegion: boolean = true;
   showSpotifyRegion: boolean = true;
   showTwitterTime: boolean = true;
-  showSpotifyTime: boolean = true;
+  showTwitterLikes: boolean = true;
+  showTwitterRetweets: boolean = true;
 
   empty: boolean = false;
 
@@ -22,7 +23,7 @@ export class UserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(!this.showTrending && !this.showTwitterRegion && !this.showSpotifyRegion && !this.showTwitterTime && !this.showSpotifyTime){
+    if(!this.showTwitterLikes && !this.showTwitterRetweets && !this.showTrending && !this.showTwitterRegion && !this.showSpotifyRegion && !this.showTwitterTime){
       this.empty = true;
     }
   }

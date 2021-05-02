@@ -26,12 +26,19 @@
 
     <!-- Time row -->
     <div class="bufferbox row">
-        <div class="col" *ngIf="showSpotifyTime">
-          <app-time-spotify></app-time-spotify>
-        </div>
         <div class="col" *ngIf="showTwitterTime">
           <app-time-tweets></app-time-tweets>
         </div>
+    </div>
+
+    <!-- Likes and Retweets-->
+    <div class="bufferbox row">
+      <div class="col" *ngIf="showTwitterLikes">
+        <app-twitter-likes></app-twitter-likes>
+      </div>
+      <div class="col" *ngIf="showTwitterRetweets">
+        <app-twitter-retweets></app-twitter-retweets>
+      </div>
     </div>
 
 </div>
