@@ -11,7 +11,7 @@ import { UserPreferencesService } from '../user-preferences.service';
 export class UserComponent implements OnInit {
 
   showTrending: boolean = this.prefs.trendingTweets;
-  showTwitterRegion: boolean = this.prefs.timeTweets;
+  showTwitterRegion: boolean = this.prefs.regionTweets;
   showSpotifyRegion: boolean = this.prefs.regionSpotify;
   showTwitterTime: boolean = this.prefs.timeTweets;
   showTwitterLikes: boolean = this.prefs.twitterLikes;
