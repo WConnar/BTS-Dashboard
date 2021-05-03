@@ -37,21 +37,27 @@ export class SettingsComponent{
   onChanged(name: string, isChecked: boolean){
     if(name == this.trendingTweetsName){
       this.trendingTweets = isChecked;
+      this.prefs.setTrending(isChecked);
     };
     if(name == this.regionTweetsName){
       this.regionTweets = isChecked;
+      this.prefs.setRegionTweets(isChecked);
     };
     if(name == this.timeTweetsName){
       this.timeTweets = isChecked;
+      this.prefs.setTimeTweets(isChecked);
     };
     if(name == this.regionSpotifyName){
       this.regionSpotify = isChecked;
+      this.prefs.setRegionSpotify(isChecked);
     };
     if(name == this.twitterLikesName){
       this.twitterLikes = isChecked;
+      this.prefs.setLikes(isChecked);
     }
     if(name == this.twitterRetweetsName){
       this.twitterRetweets = isChecked;
+      this.prefs.setRetweets(isChecked);
     }
   }
 
