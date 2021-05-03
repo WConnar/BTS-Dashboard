@@ -65,7 +65,7 @@ import { TwitterRetweetsComponent } from './user-components/twitter-retweets/twi
     AngularFireStorageModule,
     
   ],
-  providers: [],
+  providers: [SettingsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
