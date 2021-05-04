@@ -30,6 +30,33 @@ exports.getTopTracks = functions.https.onCall(async(context) =>{
 
 })
 
+exports.updateActivityData = functions.https.onRequest((request, response) => {
+  cors(request, response, async () => {
+    let responseData = [];
+    let dateRange = 7;
+    let url = 'search/tweets';
+    let params;
+    let currDate = new Date();
+    let presentDate;
+    let prevDate;
+    let date;
+    for (let index = 0; index<dateRange; index++){
+      presentDate = new Date(currDate.getTime() - (index * 24 * 60 * 60 * 1000));
+      prevDate = new Date(currDate.getTime() - ((index+1) * 24 * 60 * 60 * 1000));
+      date = presentDate.getFullYear() + "-" + (presentDate.getMonth()+1) + "-" + presentDate.getDate();
+      let sinceDate = prevDate.getFullYear() + "-" + (prevDate.getMonth()+1) + "-" + prevDate.getDate();
+      params = {q:"#bts", count:10, result_type:"popular", since:sinceDate, until:date};
+      await tweetHandler.updateTweets(url, params, date, response)
+      .then(data => {
+        responseData.push(data);
+      });
+    }
+    console.log("end");
+    //TD_Agent.deleteDocuments(prevDate);
+    response.status(200).send(responseData);
+  });
+});
+
 //firebase request function to update tweets that will be displayed on the main page
 exports.updateMainTweets = functions.https.onRequest((request, response) => {
   cors(request, response, async () => {

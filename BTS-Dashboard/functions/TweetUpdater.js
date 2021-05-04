@@ -13,7 +13,7 @@ class TweetUpdater{
     }
     /**
      * This method will replace tweets within a firebase collection with the 10 most
-     * recent tweets from a Twitter URL enpoint.
+     * recent tweets from a Twitter URL enpoint. 
      * @param url The URL endpoint we will be sending a GET request to
      * @param params The parameters that will be followed when the URL request is made
      * @param collection The firestore collection we will be storing our data to
@@ -27,7 +27,7 @@ class TweetUpdater{
             for(let index = 0; index < data.length; index++){
                 this.TD_Agent.saveDocument(data[index], collection);
             }
-            response.status(200).send(data);
+            return data;
         });
         /*
         let tweetData = await this.TAPI_Agent.get(url, params);

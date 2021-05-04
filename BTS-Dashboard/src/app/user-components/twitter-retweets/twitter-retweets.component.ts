@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+declare const ChartCreator:any;
+declare const TwitterDataPipeline:any;
 
 @Component({
   selector: 'app-twitter-retweets',
@@ -9,7 +11,16 @@ export class TwitterRetweetsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  async ngOnInit(){
+    let chartHandler = new ChartCreator();
+    let dataPipeline = new TwitterDataPipeline();
+    var options = {
+      title: 'BTS Fan Retweet Count',
+      colors: ['red']
+    }
+    let data = await dataPipeline.getBarChartData("retweet_count", ["Date", "Retweets"]);
+    console.log(data);
+    chartHandler.createBarChart(data, "retweetsCountChart", options);
   }
 
 }
