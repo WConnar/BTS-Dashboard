@@ -63,12 +63,14 @@
             <input type="password" id="password" class="form-control mb-4" placeholder="Password" name="password" [(ngModel)]="model.password">
             <p *ngIf="errorMessage"><span class="deep-orange-text">{{errorMessage}}</span></p>
             <p *ngIf="accountSuccess"><span class="teal-text">You have logged in! You may now close this window.</span></p>
+            <p *ngIf="resetSuccess"><span class="teal-text">A password reset email has been sent to your inbox. You may now close this window.</span></p>
             
             <button mdbBtn gradient="purple"  class="my-4" type="submit" (click)="elogin(model.email,model.password)">Sign in</button>
             
             <p>
               <button mdbBtn gradient="purple" (click)="loginModal.hide()" (click)="signupModal.show()" class="my-4" type="submit">Not a member? Register</button>
             </p>
+            <u><a style="color:royalblue" (click)="resetPassword(model.email)">Forgot password?</a></u>
             <hr>
             <p>or sign in with:</p>
 
