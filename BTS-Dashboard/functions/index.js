@@ -39,20 +39,20 @@ exports.updateActivityData = functions.https.onRequest((request, response) => {
     let currDate = new Date();
     let presentDate;
     let prevDate;
+    let sinceDate;
     let date;
     for (let index = 0; index<dateRange; index++){
       presentDate = new Date(currDate.getTime() - (index * 24 * 60 * 60 * 1000));
       prevDate = new Date(currDate.getTime() - ((index+1) * 24 * 60 * 60 * 1000));
       date = presentDate.getFullYear() + "-" + (presentDate.getMonth()+1) + "-" + presentDate.getDate();
-      let sinceDate = prevDate.getFullYear() + "-" + (prevDate.getMonth()+1) + "-" + prevDate.getDate();
+      sinceDate = prevDate.getFullYear() + "-" + (prevDate.getMonth()+1) + "-" + prevDate.getDate();
       params = {q:"#bts", count:10, result_type:"popular", since:sinceDate, until:date};
       await tweetHandler.updateTweets(url, params, date, response)
       .then(data => {
         responseData.push(data);
       });
     }
-    console.log("end");
-    //TD_Agent.deleteDocuments(prevDate);
+    TD_Agent.deleteDocuments(sinceDate);
     response.status(200).send(responseData);
   });
 });
@@ -62,7 +62,10 @@ exports.updateMainTweets = functions.https.onRequest((request, response) => {
   cors(request, response, async () => {
     let url = 'statuses/user_timeline';
     let params = {screen_name:"bts_bighit", count:10};
-    tweetHandler.updateTweets(url, params, "tweets", response)
+    await tweetHandler.updateTweets(url, params, "tweets", response)
+    .then(data => {
+      response.status(200).send(data);
+    });
   });
 });
 
@@ -72,6 +75,9 @@ exports.updateTrendingTweets = functions.https.onRequest((request, response) => 
     let url = 'search/tweets';
     let params = {q:"#bts", count:10, response_type:"popular"};
     tweetHandler.updateTweets(url, params, "#bts", response)
+    .then(data => {
+      response.status(200).send(data);
+    });
   });
 });
 
@@ -84,9 +90,12 @@ exports.getDataFromDB = functions.https.onCall(async (data, context) => {
 exports.refreshTweets = functions.pubsub.schedule('every 24 hours').timeZone('America/New_York').onRun((context) => {
   const mainTweets = 'https://us-central1-btsdashboard-d7ad5.cloudfunctions.net/updateMainTweets';
   const trendingTweets = 'https://us-central1-btsdashboard-d7ad5.cloudfunctions.net/updateTrendingTweets';
+  const activityData = 'https://us-central1-btsdashboard-d7ad5.cloudfunctions.net/updateActivityData';
   fetch(mainTweets)
   .then((result) => console.log(result));
   fetch(trendingTweets)
+  .then((result) => console.log(result));
+  fetch(activityData)
   .then((result) => console.log(result));
   return null;
 })

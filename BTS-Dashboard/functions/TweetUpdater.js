@@ -22,13 +22,14 @@ class TweetUpdater{
      */
     async updateTweets(url, params, collection, response){
         this.TD_Agent.deleteDocuments(collection);
-        this.TAPI_Agent.get(url,params)
+        let tweetData = await this.TAPI_Agent.get(url,params)
         .then(async(data) => {
             for(let index = 0; index < data.length; index++){
                 this.TD_Agent.saveDocument(data[index], collection);
             }
             return data;
         });
+        return tweetData;
         /*
         let tweetData = await this.TAPI_Agent.get(url, params);
         this.TD_Agent.deleteDocuments(collection);
