@@ -47,7 +47,9 @@
               "./node_modules/hammerjs/hammer.min.js",
               "./src/scripts/displayTweets.js",
               "./src/scripts/TwitterDataPipeline.js",
-              "./src/scripts/ChartCreator.js"
+              "./src/scripts/ChartCreator.js",
+              "./src/scripts/PullFromSpotify.js",
+              "./src/scripts/SpotifyDataPipeline.js"
             ]
           },
           "configurations": {

@@ -86,6 +86,10 @@ exports.getDataFromDB = functions.https.onCall(async (data, context) => {
   return TD_Agent.getDocuments(data);
 })
 
+exports.getDataFromSpotifyDB = functions.https.onCall(async (data, context) => {
+  return SD_Agent.getDocuments(data);
+})
+
 //firebase scheduled function for updating main and user page tweets
 exports.refreshTweets = functions.pubsub.schedule('every 24 hours').timeZone('America/New_York').onRun((context) => {
   const mainTweets = 'https://us-central1-btsdashboard-d7ad5.cloudfunctions.net/updateMainTweets';
