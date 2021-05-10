@@ -27,7 +27,7 @@ class SpotifyTopTracks{
         console.log(this.spotifyApi);
     }
 
-  async getTracks(){
+  async getTracks(region){
    
     this.spotifyApi
       .clientCredentialsGrant()
@@ -38,7 +38,7 @@ class SpotifyTopTracks{
 
         // Get the most popular tracks by David Bowie in Great Britain
         //return 
-        let test = await this.spotifyApi.getArtistTopTracks('3Nrfpe0tUJi4K4DXYWgMUX', 'GB');
+        let test = await this.spotifyApi.getArtistTopTracks('3Nrfpe0tUJi4K4DXYWgMUX', region);
         return test;
       })
       .then((data) =>{
@@ -48,7 +48,7 @@ class SpotifyTopTracks{
         console.log(data.body);
         
         data.body.tracks.forEach((track, index) =>{
-          this.database.saveDocument(track, "tracks");
+          this.database.saveDocument(track, "tracks" + region);
         });
       })
       .catch(function(err) {

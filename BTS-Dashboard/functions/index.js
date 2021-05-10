@@ -26,7 +26,17 @@ const tweetHandler = new TweetUpdater(TD_Agent, TAPI_Agent);
 const SpotifyTracker = new SpotifyTopTracks(SpotifyClient, SD_Agent);
 
 exports.getTopTracks = functions.https.onCall(async(context) =>{
-  SpotifyTracker.getTracks();
+  SpotifyTracker.getTracks('GB');
+  SpotifyTracker.getTracks('US');
+  SpotifyTracker.getTracks('DE');
+  SpotifyTracker.getTracks('FR');
+  SpotifyTracker.getTracks('MX');
+  SpotifyTracker.getTracks('CA');
+  SpotifyTracker.getTracks('CN');
+  SpotifyTracker.getTracks('KR');
+  SpotifyTracker.getTracks('JP');
+  SpotifyTracker.getTracks('AU');
+  SpotifyTracker.getTracks('ZA');
 
 })
 
