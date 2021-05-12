@@ -1,3 +1,8 @@
+/* @AH_VACKintosh
+  The routing module for this webpage, uses firebase authguard
+  to prevent unauthorised users from getting to the logged in 
+  pages
+*/
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';

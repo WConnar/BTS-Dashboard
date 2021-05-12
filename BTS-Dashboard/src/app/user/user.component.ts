@@ -1,3 +1,4 @@
+//@AH_VACKintosh This just checks to make sure the user page isn't totally empty
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
