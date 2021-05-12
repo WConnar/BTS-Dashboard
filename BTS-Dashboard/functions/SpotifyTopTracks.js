@@ -28,7 +28,7 @@ class SpotifyTopTracks{
     }
 
   async getTracks(region){
-   
+     this.database.deleteDocuments("tracks" + region);
     this.spotifyApi
       .clientCredentialsGrant()
       .then(async (data) => {
