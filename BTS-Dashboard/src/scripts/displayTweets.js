@@ -2,13 +2,13 @@ async function displayTweets(htmlElement, collectionName){
     let getTweets = await firebase.functions().httpsCallable("getDataFromDB");
     const section = document.getElementById(htmlElement);
     getTweets(collectionName).then(result => {
-        result.data.reverse();
         section.innerHTML += '<style> ' +
-      'div.tweet{ width: 100%; border: 3px solid #3BB9FF; text-align: left;  padding-left: 15px; padding-top: 10px; border-radius: 5px; height: 50%;}' +
+      'div.tweet{ width: 100%; border: 3px solid #3BB9FF; text-align: left;  padding-left: 15px; padding-top: 10px; border-radius: 5px; height: 100%;}' +
       'img.profile {border: 1px solid #3BB9FF; border-radius: 50%;}' +
       'p.text, div.text {color:black;}' +
       'p.text:hover{text-decoration: underline}'+
       'div.text:hover{text-decoration: underline}'+
+      'div.time-stamp{color:black; padding-top:10px;}'+
       '</style>'
         result.data.map(data => {
             formatTweet(data.data, section);
@@ -30,6 +30,7 @@ function formatTweet(data, tagRef){
             '<a href="' + tweetRef + '">' + 
             '<div class="text">' + data.retweeted_status.text + '</div>' +
             '</a>'+
+            '<div class="time-stamp">' + "Created at: " + data.created_at + '<div>'+
             '</div>';
         }
         else if(data.retweeted_status.entities.urls[0] != undefined){
@@ -43,6 +44,7 @@ function formatTweet(data, tagRef){
             '<a href="' + tweetRef + '">' + 
             '<div class="text">' + data.retweeted_status.text + '</div>' +
             '</a>'+
+            '<div class="time-stamp">' + "Created at: " + data.created_at + '<div>'+
             '</div></a>';
         }
     }
@@ -58,6 +60,7 @@ function formatTweet(data, tagRef){
             '<a href="' + tweetRef + '">' + 
             '<div class="text">' + data.text + '</div>' +
             '</a>'+
+            '<div class="time-stamp">' + "Created at: " + data.created_at + '<div>'+
             '</div>';
         }
         else if(data.entities.urls[0] != undefined){
@@ -71,6 +74,7 @@ function formatTweet(data, tagRef){
             '<a href="' + tweetRef + '">' + 
             '<div class="text">' + data.text + '</div>' +
             '</a>'+
+            '<div class="time-stamp">' + "Created at: " + data.created_at + '<div>'+
             '</div>';
         }
     }

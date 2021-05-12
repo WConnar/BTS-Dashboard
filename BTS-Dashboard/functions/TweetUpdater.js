@@ -30,16 +30,24 @@ class TweetUpdater{
             return data;
         });
         return tweetData;
-        /*
-        let tweetData = await this.TAPI_Agent.get(url, params);
-        this.TD_Agent.deleteDocuments(collection);
-        this.TAPI_Agent.embedTweets(tweetData)
+    }
+
+    async updateLocationData(url, params){
+        let countryActivity = await this.TAPI_Agent.get(url, params)
         .then(async (data) => {
-            for(let index = 0; index < data.length; index++){
-                this.TD_Agent.saveDocument(data[index], collection);
+            let retweets = 0;
+            let likeCount = 0;
+            console.log(data);
+            for(let index = 0; index<data.length; index++){
+                console.log(data[index].retweet_count)
+                console.log(data[index].favorite_count);
+                retweets += data[index].retweet_count;
+                likeCount += data[index].favorite_count;
             }
-            response.status(200).send(data);
-        });*/
+            return [retweets, likeCount];
+        });
+        console.log(countryActivity);
+        return countryActivity;
     }
 }
 

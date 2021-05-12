@@ -25,10 +25,39 @@ const TAPI_Agent = new TwitterAPIAgent(client);
 const tweetHandler = new TweetUpdater(TD_Agent, TAPI_Agent);
 const SpotifyTracker = new SpotifyTopTracks(SpotifyClient, SD_Agent);
 
+let countryList = [
+  '5714382051c06d1e',
+  '25530ba03b7d90c6',
+  '4d3b316fe2e52b29',
+  '682c5a667856ef42',
+  '8633ee56a589f49c',
+  '2dfa9ecb0179a4e4',
+  '974c290e10850494',
+  '06ef846bfc783874',
+  '1b107df3ccc0aaa1',
+  '2371490f9d073edc',
+  'b850c1bfd38f30e0',
+  'ce7988d3a8b6f49f',
+  '96683cc9126741d1'
+];
 exports.getTopTracks = functions.https.onCall(async(context) =>{
   SpotifyTracker.getTracks();
 
 })
+
+exports.getLocationData = functions.https.onRequest((request, response) => {
+  cors(request, response, async () => {
+    let url = 'search/tweets';
+    let g = [];
+    for(let index = 0; index<countryList.length; index++){
+      let params = {q:"#bts place:"+countryList[index], count:10, result_type:"popular"};
+      let countryActivity = await tweetHandler.updateLocationData(url, params);
+      g.push(countryActivity);
+    }
+    console.log(g);
+    response.status(200);
+  });
+});
 
 exports.updateActivityData = functions.https.onRequest((request, response) => {
   cors(request, response, async () => {

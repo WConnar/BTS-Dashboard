@@ -7,3 +7,9 @@
 blockquote{
     background-color: aqua;
 }
+
+#tweets{
+    display: grid;
+    grid-template-rows: repeat(10, 10%);
+    grid-gap: 1em;
+}
