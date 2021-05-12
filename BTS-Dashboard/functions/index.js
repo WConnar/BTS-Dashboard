@@ -41,17 +41,16 @@ let countryList = [
   '96683cc9126741d1'
 ];
 exports.getTopTracks = functions.https.onCall(async(context) =>{
-  SpotifyTracker.getTracks('GB');
+  SpotifyTracker.getTracks('PH');
   SpotifyTracker.getTracks('US');
-  SpotifyTracker.getTracks('DE');
-  SpotifyTracker.getTracks('FR');
+  SpotifyTracker.getTracks('TH');
+  SpotifyTracker.getTracks('BR');
   SpotifyTracker.getTracks('MX');
-  SpotifyTracker.getTracks('CA');
-  SpotifyTracker.getTracks('CN');
+  SpotifyTracker.getTracks('MY');
+  SpotifyTracker.getTracks('IN');
   SpotifyTracker.getTracks('KR');
   SpotifyTracker.getTracks('JP');
-  SpotifyTracker.getTracks('AU');
-  SpotifyTracker.getTracks('ZA');
+  SpotifyTracker.getTracks('ID');
 
 })
 
@@ -140,5 +139,13 @@ exports.refreshTweets = functions.pubsub.schedule('every 24 hours').timeZone('Am
   .then((result) => console.log(result));
   fetch(activityData)
   .then((result) => console.log(result));
+  return null;
+})
+
+exports.refreshTracks = functions.pubsub.schedule('every 24 hours').timeZone('America/New_York').onRun((context) => {
+  const newTracks = 'https://us-central1-btsdashboard-d7ad5.cloudfunctions.net/getTopTracks';
+  fetch(newTracks)
+  .then((result) => console.log(result));
+
   return null;
 })
