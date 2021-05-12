@@ -25,6 +25,8 @@ export class NavBarComponent {
 
   accountSuccess: boolean = false;
 
+  resetSuccess: boolean = false;
+
   constructor(public auth: AngularFireAuth) {
     this.auth.authState.subscribe((auth) => {
       this.authState = auth
@@ -40,6 +42,7 @@ export class NavBarComponent {
   logout() {
     this.auth.signOut();
     this.accountSuccess = false;
+    this.resetSuccess = false;
   }
 
   signUp(email: string, password: string, name: string) {
@@ -49,6 +52,7 @@ export class NavBarComponent {
         this.newUserName = name;
         this.accountSuccess = true;
         this.errorMessage = null;
+        this.resetSuccess = false;
         var theCurrentUser = firebase.auth().currentUser;
         if(theCurrentUser){
           theCurrentUser.updateProfile({
@@ -59,6 +63,7 @@ export class NavBarComponent {
       .catch(error => {
         this.errorMessage = error;
         this.accountSuccess = false;
+        this.resetSuccess = false;
         console.log(error)
         throw error
       });
@@ -70,10 +75,12 @@ export class NavBarComponent {
         this.authState = user;
         this.accountSuccess = true;
         this.errorMessage = null;
+        this.resetSuccess = false;
       })
       .catch(error => {
         this.errorMessage = error;
         this.accountSuccess = false;
+        this.resetSuccess = false;
         console.log(error)
         throw error
       });
@@ -86,5 +93,17 @@ export class NavBarComponent {
     else{
       return false
     }
+  }
+
+  resetPassword(email:string){
+    this.auth.sendPasswordResetEmail(email)
+    .then((user) => {
+      this.errorMessage = null;
+      this.accountSuccess = false;
+      this.resetSuccess = true;
+    })
+    .catch(error => {
+      this.errorMessage = error;
+    })
   }
 }

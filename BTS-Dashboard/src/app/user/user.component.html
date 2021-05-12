@@ -7,28 +7,9 @@
     <div class="bufferbox" *ngIf="empty">Hey! Looks like you haven't selected anything to be displayed here yet. Why don't you click on preferences and pick out some stuff?</div>
     <!-- Trending Tweets row-->
     <div class="bufferbox row">
-      <div class="col">
-          <div *ngIf="showTrending">
-            <app-trending-tweets></app-trending-tweets>
-          </div>
+      <div class="col" *ngIf="showTwitterTime">
+        <app-time-tweets></app-time-tweets>
       </div>
-    </div>
-
-    <!-- Regional row-->
-    <div class="bufferbox row">
-      <div class="col" *ngIf="showSpotifyRegion">
-        <app-regional-spotify></app-regional-spotify>
-      </div>
-      <div class="col" *ngIf="showTwitterRegion">
-        <app-regional-tweets></app-regional-tweets>
-      </div>
-    </div>
-
-    <!-- Time row -->
-    <div class="bufferbox row">
-        <div class="col" *ngIf="showTwitterTime">
-          <app-time-tweets></app-time-tweets>
-        </div>
     </div>
 
     <!-- Likes and Retweets-->
@@ -38,6 +19,24 @@
       </div>
       <div class="col" *ngIf="showTwitterRetweets">
         <app-twitter-retweets></app-twitter-retweets>
+      </div>
+    </div>
+
+    <div class="bufferbox row">
+      <div class="col">
+        <div *ngIf="showTrending">
+          <app-trending-tweets></app-trending-tweets>
+        </div>
+      </div>  
+    </div>
+
+    <!-- Regional row-->
+    <div class="bufferbox row">
+      <div class="col" *ngIf="showSpotifyRegion">
+        <app-regional-spotify></app-regional-spotify>
+      </div>
+      <div class="col" *ngIf="showTwitterRegion">
+        <app-regional-tweets></app-regional-tweets>
       </div>
     </div>
 

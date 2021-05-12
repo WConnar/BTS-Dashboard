@@ -41,7 +41,17 @@ let countryList = [
   '96683cc9126741d1'
 ];
 exports.getTopTracks = functions.https.onCall(async(context) =>{
-  SpotifyTracker.getTracks();
+  SpotifyTracker.getTracks('GB');
+  SpotifyTracker.getTracks('US');
+  SpotifyTracker.getTracks('DE');
+  SpotifyTracker.getTracks('FR');
+  SpotifyTracker.getTracks('MX');
+  SpotifyTracker.getTracks('CA');
+  SpotifyTracker.getTracks('CN');
+  SpotifyTracker.getTracks('KR');
+  SpotifyTracker.getTracks('JP');
+  SpotifyTracker.getTracks('AU');
+  SpotifyTracker.getTracks('ZA');
 
 })
 
@@ -113,6 +123,10 @@ exports.updateTrendingTweets = functions.https.onRequest((request, response) => 
 //firebase onCall function that gets twitter data from the database and returns it
 exports.getDataFromDB = functions.https.onCall(async (data, context) => {
   return TD_Agent.getDocuments(data);
+})
+
+exports.getDataFromSpotifyDB = functions.https.onCall(async (data, context) => {
+  return SD_Agent.getDocuments(data);
 })
 
 //firebase scheduled function for updating main and user page tweets

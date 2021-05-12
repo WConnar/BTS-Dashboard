@@ -13,6 +13,14 @@
   padding: 1rem
 }
 
+.underline{    
+  background: linear-gradient(to left, #7c4dff, #F76FC4 100%);
+  background-position: 0 100%;
+  border-radius: 20px;
+  background-size: 100% 4px;
+  background-repeat: repeat-x;
+}
+
 .aboutbox{
   border: 3px solid grey;
   border-radius: 5px;
