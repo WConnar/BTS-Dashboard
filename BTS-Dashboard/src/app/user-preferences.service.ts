@@ -9,7 +9,7 @@ export class UserPreferencesService {
   twitterRetweets: boolean = true;
   twitterLikes: boolean = true;
 
-  regionTweets: boolean = true;
+  regionTweets: boolean = false;
   timeTweets: boolean = true;
   regionSpotify: boolean = true;
 
