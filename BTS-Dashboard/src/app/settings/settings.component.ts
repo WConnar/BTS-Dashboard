@@ -1,3 +1,8 @@
+/* @AH_VACKintosh
+  Uses firebase auth to check for authenticated user, also uses
+  user-preferences to check to see what is being displayed and allow 
+  users to control that
+*/
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';

@@ -1,32 +1,17 @@
 
 
-/**
- * This example retrieves the top tracks for an artist.
- * https://developer.spotify.com/documentation/web-api/reference/artists/get-artists-top-tracks/
- */
-
-
-//const { database } = require("firebase-admin");
-
-/**
- * This endpoint doesn't require an access token, but it's beneficial to use one as it
- * gives the application a higher rate limit.
- *
- * Since it's not necessary to get an access token connected to a specific user, this example
- * uses the Client Credentials flow. This flow uses only the client ID and the client secret.
- * https://developer.spotify.com/documentation/general/guides/authorization-guide/#client-credentials-flow
- */
 
 
 
-// Retrieve an access token
+
+// SpotifyTopTracks has an api agent and collections agent
 class SpotifyTopTracks{
     constructor(spotifyApi, database){
         this.spotifyApi = spotifyApi;
         this.database = database;
         console.log(this.spotifyApi);
     }
-
+  //Get top tracks for selected country, first delete existing tracks in appropriate collection, that add new tracks
   async getTracks(region){
      this.database.deleteDocuments("tracks" + region);
     this.spotifyApi
@@ -36,8 +21,7 @@ class SpotifyTopTracks{
         //console.log(data);
         this.spotifyApi.setAccessToken(data.body.access_token);
 
-        // Get the most popular tracks by David Bowie in Great Britain
-        //return 
+        
         let test = await this.spotifyApi.getArtistTopTracks('3Nrfpe0tUJi4K4DXYWgMUX', region);
         return test;
       })

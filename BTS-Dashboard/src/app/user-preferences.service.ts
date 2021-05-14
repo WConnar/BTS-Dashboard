@@ -1,3 +1,7 @@
+/* @AH_VACKintosh 
+  This file helps to control what is seen on the user's individual
+  page. Is used by the user and settings components
+*/
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -9,7 +13,7 @@ export class UserPreferencesService {
   twitterRetweets: boolean = true;
   twitterLikes: boolean = true;
 
-  regionTweets: boolean = true;
+  regionTweets: boolean = false;
   timeTweets: boolean = true;
   regionSpotify: boolean = true;
 

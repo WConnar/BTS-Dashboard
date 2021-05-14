@@ -1,3 +1,4 @@
+<!--@AH_VACKintosh The settings page-->
 <div class="container-fluid">
     <div class="bufferbox">
         <!-- Top card -->
@@ -6,10 +7,6 @@
                 <mdb-card-title><p>Preferences</p></mdb-card-title>
                 <mdb-card-text>Select what you want to have on your personal page</mdb-card-text>
                 <button type="button" mdbBtn gradient="purple" mdbWavesEffect (click)="saveThis()" routerLink="/user">Save & Return</button>
-                <!--<p>Testing statements, remove later: {{trendingTweets}},{{timeTweets}},{{regionTweets}},{{timeSpotify}},{{regionSpotify}}</p>
-                <div *ngIf="auth.user | async as user">
-                    Hi, {{ user.displayName }}!
-                  </div>-->
             </mdb-card-body>
         </mdb-card>
     </div>
@@ -21,7 +18,7 @@
                 <mdb-card-title><p>Twitter</p></mdb-card-title>
                 <mdb-card-text>
                     <p><mat-checkbox color="primary" (change)="onChanged(trendingTweetsName,$event.checked)" [checked]="trendingTweets">{{trendingTweetsName}}</mat-checkbox></p>
-                    <p><mat-checkbox color="primary" (change)="onChanged(regionTweetsName,$event.checked)" [checked]="regionTweets">{{regionTweetsName}}</mat-checkbox></p>
+                    <!--<p><mat-checkbox color="primary" (change)="onChanged(regionTweetsName,$event.checked)" [checked]="regionTweets">{{regionTweetsName}}</mat-checkbox></p>-->
                     <p><mat-checkbox color="primary" (change)="onChanged(timeTweetsName,$event.checked)" [checked]="timeTweets">{{timeTweetsName}}</mat-checkbox></p>
                     <p><mat-checkbox color="primary" (change)="onChanged(twitterRetweetsName,$event.checked)" [checked]="twitterRetweets">{{twitterRetweetsName}}</mat-checkbox></p>
                     <p><mat-checkbox color="primary" (change)="onChanged(twitterLikesName,$event.checked)" [checked]="twitterLikes">{{twitterLikesName}}</mat-checkbox></p>

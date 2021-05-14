@@ -26,6 +26,7 @@ const TAPI_Agent = new TwitterAPIAgent(client);
 const tweetHandler = new TweetUpdater(TD_Agent, TAPI_Agent);
 const SpotifyTracker = new SpotifyTopTracks(SpotifyClient, SD_Agent);
 
+//The top tracks for each country passed are being stored in appropriate Firestire collections
 exports.getTopTracks = functions.https.onCall(async(context) =>{
   SpotifyTracker.getTracks('PH');
   SpotifyTracker.getTracks('US');

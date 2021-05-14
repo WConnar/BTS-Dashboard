@@ -1,3 +1,7 @@
+/* @AH_VACKintosh
+  Uses the firebase auth methods to allow users to log in
+*/
+
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
