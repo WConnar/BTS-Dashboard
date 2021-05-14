@@ -1,3 +1,4 @@
+//This class is for aranging the features from the data for the charts to use.
 class SpotifyDataPipeline{
     constructor(){
         this.getData = firebase.functions().httpsCallable("getDataFromSpotifyDB");

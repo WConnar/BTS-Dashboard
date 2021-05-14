@@ -40,6 +40,7 @@ let countryList = [
   'ce7988d3a8b6f49f',
   '96683cc9126741d1'
 ];
+//The top tracks for each country passed are being stored in appropriate Firestire collections
 exports.getTopTracks = functions.https.onCall(async(context) =>{
   SpotifyTracker.getTracks('PH');
   SpotifyTracker.getTracks('US');
