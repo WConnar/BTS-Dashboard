@@ -16,6 +16,7 @@ class TwitterDatabaseAgent extends DatabaseAgent{
      * @param collection The firestore collection we wish to add data to
      */
     async saveDocument(tweet, collection){
+        console.log(tweet);
         this.database.collection(collection).add({
             /*
             author_name: tweet.author_name,

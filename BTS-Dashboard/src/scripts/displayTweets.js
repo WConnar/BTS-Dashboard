@@ -10,12 +10,40 @@ async function displayTweets(htmlElement, collectionName){
       'div.text:hover{text-decoration: underline}'+
       'div.time-stamp{color:black; padding-top:10px;}'+
       '</style>'
-        result.data.map(data => {
-            formatTweet(data.data, section);
+        result.data.map(async (data) => {
+            await translateTweetText(data.data).then((translatedTweet) => {
+                console.log(translatedTweet);
+                formatTweet(translatedTweet, section);
+            });
         })
     })
 }
 
+async function translateTweetText(tweetData){
+    let retTweet = tweetData;
+    let translateText = await firebase.functions().httpsCallable("translateText");
+    if(tweetData.retweeted_status != null){
+        console.log(tweetData);
+        if(tweetData.retweeted_status.lang != "en"){
+            data = {"text":tweetData.retweeted_status.text, "from":tweetData.retweeted_status.lang, "to":"en"};
+            await translateText(data).then((result) => {
+                tweetData.retweeted_status.text = result.data;
+                retTweet = tweetData;
+            });
+        }
+    } 
+    else{
+        if(tweetData.lang != "en"){
+            console.log(tweetData);
+            data = {"text":tweetData.text, "from":tweetData.lang, "to":"en"};
+            await translateText(data).then((result) => {
+                tweetData.text = result.data;
+                retTweet = tweetData;
+            });
+        }
+    }
+    return retTweet;
+}
 function formatTweet(data, tagRef){
     let tweetRef;
     if(data.retweeted_status != undefined){
