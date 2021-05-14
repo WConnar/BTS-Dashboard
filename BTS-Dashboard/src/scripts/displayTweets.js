@@ -12,7 +12,6 @@ async function displayTweets(htmlElement, collectionName){
       '</style>'
         result.data.map(async (data) => {
             await translateTweetText(data.data).then((translatedTweet) => {
-                console.log(translatedTweet);
                 formatTweet(translatedTweet, section);
             });
         })
@@ -23,7 +22,6 @@ async function translateTweetText(tweetData){
     let retTweet = tweetData;
     let translateText = await firebase.functions().httpsCallable("translateText");
     if(tweetData.retweeted_status != null){
-        console.log(tweetData);
         if(tweetData.retweeted_status.lang != "en"){
             data = {"text":tweetData.retweeted_status.text, "from":tweetData.retweeted_status.lang, "to":"en"};
             await translateText(data).then((result) => {
@@ -34,7 +32,6 @@ async function translateTweetText(tweetData){
     } 
     else{
         if(tweetData.lang != "en"){
-            console.log(tweetData);
             data = {"text":tweetData.text, "from":tweetData.lang, "to":"en"};
             await translateText(data).then((result) => {
                 tweetData.text = result.data;
