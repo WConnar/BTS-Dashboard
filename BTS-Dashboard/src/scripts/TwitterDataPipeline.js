@@ -1,8 +1,18 @@
+/**
+ * The purpose of this class is to pull data from twitter, which can then be used to create graphs
+ */
 class TwitterDataPipeline{
     constructor(){
         this.getData = firebase.functions().httpsCallable("getDataFromDB");
     }
 
+    /**
+     * Pulls data from firebase for the past 7 days and returns that data in a 2d array.
+     * @param key1 The first key/json field data will be pulled from
+     * @param key2 The second key/json field data will be pulled from
+     * @param axisVariables The names that will be given to the axes of the graph the data will be used on
+     * @returns Returns a 2d array that is compatible for use when creating a combo chart from google's google charts package
+     */
     async getComboChartData(key1, key2, axisVariables){
         let chartData = [];
         let dateRange = 7;
@@ -27,6 +37,12 @@ class TwitterDataPipeline{
         return chartData;
     }
 
+    /**
+     * Pulls data from firebase for the past 7 days and returns that data in an array.
+     * @param key The \key/json field data will be pulled from
+     * @param axisVariables The names that will be given to the axes of the graph the data will be used on
+     * @returns Returns a 2d array that is compatible for use when creating a bar chart from google's google charts package
+     */
     async getBarChartData(key, axisVariables){
         let chartData = [];
         let dateRange = 7;

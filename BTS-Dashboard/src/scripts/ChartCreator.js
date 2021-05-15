@@ -1,6 +1,9 @@
 google.charts.load('current', {'packages':['corechart', 'geochart'], mapsApiKey:'AIzaSyDrHYlzfwsY3rznx9e6UA6CB4WpqrK1ELY'});
 //google.charts.setOnLoadCallback(function(){drawChart});
 
+/**
+ * This class creates different types of charts by using the google charts package
+ */
 class ChartCreator{
     async createComboChart(chartData, htmlElement, options){
         var processedData = google.visualization.arrayToDataTable(chartData);

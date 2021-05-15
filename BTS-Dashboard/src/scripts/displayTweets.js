@@ -1,3 +1,8 @@
+/**
+ * This function will display tweets stored in a firebase collection to an HTML element
+ * @param htmlElement The element the tweets will be added to
+ * @param collectionName The firebase collection the data will be pulled from
+ */
 async function displayTweets(htmlElement, collectionName){
     let getTweets = await firebase.functions().httpsCallable("getDataFromDB");
     const section = document.getElementById(htmlElement);
@@ -17,7 +22,11 @@ async function displayTweets(htmlElement, collectionName){
         })
     })
 }
-
+/**
+ * This function will translate and change the text of a tweet if it is not already in english
+ * @param tweetData The JSON data of a twitter tweet
+ * @returns The tweet JSON Object
+ */
 async function translateTweetText(tweetData){
     let retTweet = tweetData;
     let translateText = await firebase.functions().httpsCallable("translateText");
@@ -41,6 +50,12 @@ async function translateTweetText(tweetData){
     }
     return retTweet;
 }
+/**
+ * Given a tweet JSON object this function will format the tweet in a blue container, including the user's profile image, their
+ * username, their twitter handle, the text contained in the tweet, and the tweet's time stamp
+ * @param data The tweet JSON object
+ * @param tagRef A reference to the HTML element the tweet will be formatted in
+ */
 function formatTweet(data, tagRef){
     let tweetRef;
     if(data.retweeted_status != undefined){
