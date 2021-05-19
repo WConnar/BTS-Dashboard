@@ -1,3 +1,4 @@
+//KD
 /**
  * This class poses as an abstract class. Its main purpose is to pose as a medium for communicating
  * with a firebase firestore.

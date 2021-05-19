@@ -40,6 +40,7 @@ exports.getTopTracks = functions.https.onCall(async(context) =>{
   SpotifyTracker.getTracks('ID');
 })
 
+//KD
 exports.translateText = functions.https.onCall(async (data, context) => {
   translate.engine = 'google';
   translate.key = process.env.GOOGLE_TRANSLATION_KEY;
@@ -47,6 +48,7 @@ exports.translateText = functions.https.onCall(async (data, context) => {
   return translatedText;
 })
 
+//KD
 exports.updateActivityData = functions.https.onRequest((request, response) => {
   cors(request, response, async () => {
     let responseData = [];
@@ -74,6 +76,7 @@ exports.updateActivityData = functions.https.onRequest((request, response) => {
   });
 });
 
+//KD
 //firebase request function to update tweets that will be displayed on the main page
 exports.updateMainTweets = functions.https.onRequest((request, response) => {
   cors(request, response, async () => {
@@ -86,6 +89,7 @@ exports.updateMainTweets = functions.https.onRequest((request, response) => {
   });
 });
 
+//KD
 //firebase request function to update tweets that will be displayed on user page
 exports.updateTrendingTweets = functions.https.onRequest((request, response) => {
   cors(request, response, async () => {
@@ -98,6 +102,7 @@ exports.updateTrendingTweets = functions.https.onRequest((request, response) => 
   });
 });
 
+//KD
 //firebase onCall function that gets twitter data from the database and returns it
 exports.getDataFromDB = functions.https.onCall(async (data, context) => {
   return TD_Agent.getDocuments(data);
@@ -107,6 +112,7 @@ exports.getDataFromSpotifyDB = functions.https.onCall(async (data, context) => {
   return SD_Agent.getDocuments(data);
 })
 
+//KD
 //firebase scheduled function for updating main and user page tweets
 exports.refreshTweets = functions.pubsub.schedule('every 24 hours').timeZone('America/New_York').onRun((context) => {
   const mainTweets = 'https://us-central1-btsdashboard-d7ad5.cloudfunctions.net/updateMainTweets';

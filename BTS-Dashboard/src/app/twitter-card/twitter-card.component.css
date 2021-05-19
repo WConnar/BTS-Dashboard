@@ -10,6 +10,6 @@ blockquote{
 
 #tweets{
     display: grid;
-    grid-template-rows: repeat(10, 10%);
+    grid-template-rows: repeat(10, 12%);
     grid-gap: 1em;
 }
