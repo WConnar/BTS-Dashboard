@@ -9,7 +9,7 @@ declare const SpotifyDataPipeline:any;
 export class RegionalSpotifyComponent implements OnInit {
 
   constructor() { }
-
+//@VT_VACKINTOSH
   async ngOnInit(){
     let chartHandler = new ChartCreator();
     let dataPipeline = new SpotifyDataPipeline();

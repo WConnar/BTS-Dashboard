@@ -1,5 +1,6 @@
 
-
+//@VT_VACKINTOSH
+//A class with a method to pull tracks from Spotify
 
 
 

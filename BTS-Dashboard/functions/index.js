@@ -27,6 +27,7 @@ const tweetHandler = new TweetUpdater(TD_Agent, TAPI_Agent);
 const SpotifyTracker = new SpotifyTopTracks(SpotifyClient, SD_Agent);
 
 //The top tracks for each country passed are being stored in appropriate Firestire collections
+//@VT_VACKINTOSH
 exports.getTopTracks = functions.https.onCall(async(context) =>{
   SpotifyTracker.getTracks('PH');
   SpotifyTracker.getTracks('US');
@@ -126,7 +127,7 @@ exports.refreshTweets = functions.pubsub.schedule('every 24 hours').timeZone('Am
   .then((result) => console.log(result));
   return null;
 })
-
+//@VT_VACKINTOSH
 exports.refreshTracks = functions.pubsub.schedule('every 24 hours').timeZone('America/New_York').onRun((context) => {
   const newTracks = 'https://us-central1-btsdashboard-d7ad5.cloudfunctions.net/getTopTracks';
   fetch(newTracks)

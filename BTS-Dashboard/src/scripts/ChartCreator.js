@@ -17,6 +17,7 @@ class ChartCreator{
         var barChart = new google.visualization.BarChart(document.getElementById(htmlElement));
         barChart.draw(processedData, options);
     }
+    //@VT_VACKINTOSH
     async createGeoChart(chartData, htmlElement, options){
         var processedData = google.visualization.arrayToDataTable(chartData);
         var geoChart = new google.visualization.GeoChart(document.getElementById(htmlElement));
