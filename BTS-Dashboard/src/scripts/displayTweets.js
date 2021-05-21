@@ -17,9 +17,10 @@ async function displayTweets(htmlElement, collectionName){
       'div.time-stamp{color:black; padding-top:10px;}'+
       '</style>'
         result.data.map(async (data) => {
-            await translateTweetText(data.data).then((translatedTweet) => {
-                formatTweet(translatedTweet, section);
-            });
+            //await translateTweetText(data.data).then((translatedTweet) => {
+                //formatTweet(translatedTweet, section);
+            //});
+            formatTweet(data.data, section);
         })
     })
 }
