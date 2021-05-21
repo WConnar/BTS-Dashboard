@@ -29,6 +29,7 @@ const SpotifyTracker = new SpotifyTopTracks(SpotifyClient, SD_Agent);
 //The top tracks for each country passed are being stored in appropriate Firestire collections
 //@VT_VACKINTOSH
 exports.getTopTracks = functions.https.onCall(async(context) =>{
+  SpotifyTracker.getTracks('');
   SpotifyTracker.getTracks('PH');
   SpotifyTracker.getTracks('US');
   SpotifyTracker.getTracks('TH');

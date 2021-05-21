@@ -13,68 +13,87 @@ export class RegionalSpotifyComponent implements OnInit {
   async ngOnInit(){
     let chartHandler = new ChartCreator();
     let dataPipeline = new SpotifyDataPipeline();
+    var optionsGlobal = {
+      title: 'BTS Top Popular Tracks in the World',
+      width: 1500,
+      height: 500,
+    }
     var optionsID = {
+      showRowNumber: true,
       title: 'BTS Top Popular Tracks in Indonesia'
     }
     var optionsUS = {
+      showRowNumber: true,
       title: 'BTS Top Popular Tracks in United States'
     }
     var optionsMX = {
+      showRowNumber: true,
       title: 'BTS Top Popular Tracks in Mexico'
     }
     var optionsPH = {
+      showRowNumber: true,
       title: 'BTS Top Popular Tracks in Philippines'
     }
     var optionsIN = {
+      showRowNumber: true,
       title: 'BTS Top Popular Tracks in India'
     }
     var optionsKR = {
+      showRowNumber: true,
       title: 'BTS Top Popular Tracks in Korea'
     }
     var optionsBR = {
+      showRowNumber: true,
       title: 'BTS Top Popular Tracks in Brazil'
     }
     var optionsTH = {
+      showRowNumber: true,
       title: 'BTS Top Popular Tracks in Thailand'
     }
     
     var optionsMY = {
+      showRowNumber: true,
       title: 'BTS Top Popular Tracks in Malaysia'
     }
     var optionsJP = {
+      showRowNumber: true,
       title: 'BTS Top Popular Tracks in Japan'
     }
+
+    let dataGlobal = await dataPipeline.getBarChartData("name", "popularity", ["Track", "Popularity on Spotify"], '');
+    chartHandler.createBarChart(dataGlobal, "topTracksGlobal", optionsGlobal);
     
-    let dataUS = await dataPipeline.getBarChartData("name", "popularity", ["Track", "Popularity on Spotify"], 'US');
-    chartHandler.createBarChart(dataUS, "topTracksUS", optionsUS);
 
-    let dataID = await dataPipeline.getBarChartData("name", "popularity", ["Track", "Popularity on Spotify"], 'ID');
-    chartHandler.createBarChart(dataID, "topTracksID", optionsID);
+    let dataUS = await dataPipeline.getTableData("name", 'US');
+    chartHandler.createTable(dataUS, "topTracksUS", optionsUS);
 
-    let dataMY = await dataPipeline.getBarChartData("name", "popularity", ["Track", "Popularity on Spotify"], 'MY');
-    chartHandler.createBarChart(dataMY, "topTracksMY", optionsMY);
+    let dataID = await dataPipeline.getTableData("name", 'ID');
+    chartHandler.createTable(dataID, "topTracksID", optionsID);
 
-    let dataMX = await dataPipeline.getBarChartData("name", "popularity", ["Track", "Popularity on Spotify"], 'MX');
-    chartHandler.createBarChart(dataMX, "topTracksMX", optionsMX);
+    let dataMY = await dataPipeline.getTableData("name", 'MY');
+    chartHandler.createTable(dataMY, "topTracksMY", optionsMY);
 
-    let dataIN = await dataPipeline.getBarChartData("name", "popularity", ["Track", "Popularity on Spotify"], 'IN');
-    chartHandler.createBarChart(dataIN, "topTracksIN", optionsIN);
+    let dataMX = await dataPipeline.getTableData("name", 'MX');
+    chartHandler.createTable(dataMX, "topTracksMX", optionsMX);
 
-    let dataKR = await dataPipeline.getBarChartData("name", "popularity", ["Track", "Popularity on Spotify"], 'KR');
-    chartHandler.createBarChart(dataKR, "topTracksKR", optionsKR);
+    let dataIN = await dataPipeline.getTableData("name", 'IN');
+    chartHandler.createTable(dataIN, "topTracksIN", optionsIN);
+
+    let dataKR = await dataPipeline.getTableData("name", 'KR');
+    chartHandler.createTable(dataKR, "topTracksKR", optionsKR);
 
 
-    let dataJP = await dataPipeline.getBarChartData("name", "popularity", ["Track", "Popularity on Spotify"], 'JP');
-    chartHandler.createBarChart(dataJP, "topTracksJP", optionsJP);
+    let dataJP = await dataPipeline.getTableData("name", 'JP');
+    chartHandler.createTable(dataJP, "topTracksJP", optionsJP);
 
-    let dataBR = await dataPipeline.getBarChartData("name", "popularity", ["Track", "Popularity on Spotify"], 'BR');
-    chartHandler.createBarChart(dataBR, "topTracksBR", optionsBR);
+    let dataBR = await dataPipeline.getTableData("name", 'BR');
+    chartHandler.createTable(dataBR, "topTracksBR", optionsBR);
 
-    let dataTH = await dataPipeline.getBarChartData("name", "popularity", ["Track", "Popularity on Spotify"], 'TH');
-    chartHandler.createBarChart(dataTH, "topTracksTH", optionsTH);
+    let dataTH = await dataPipeline.getTableData("name", 'TH');
+    chartHandler.createTable(dataTH, "topTracksTH", optionsTH);
 
-    let dataPH = await dataPipeline.getBarChartData("name", "popularity", ["Track", "Popularity on Spotify"], 'PH');
-    chartHandler.createBarChart(dataPH, "topTracksPH", optionsPH);
+    let dataPH = await dataPipeline.getTableData("name", 'PH');
+    chartHandler.createTable(dataPH, "topTracksPH", optionsPH);
   }
 
 }

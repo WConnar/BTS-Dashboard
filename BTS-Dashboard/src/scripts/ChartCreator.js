@@ -1,5 +1,5 @@
 //KD
-google.charts.load('current', {'packages':['corechart', 'geochart'], mapsApiKey:'AIzaSyDrHYlzfwsY3rznx9e6UA6CB4WpqrK1ELY'});
+google.charts.load('current', {'packages':['corechart', 'geochart', 'table'], mapsApiKey:'AIzaSyDrHYlzfwsY3rznx9e6UA6CB4WpqrK1ELY'});
 //google.charts.setOnLoadCallback(function(){drawChart});
 
 /**
@@ -22,5 +22,10 @@ class ChartCreator{
         var processedData = google.visualization.arrayToDataTable(chartData);
         var geoChart = new google.visualization.GeoChart(document.getElementById(htmlElement));
         geoChart.draw(processedData, options);
+    }
+    async createTable(chartData, htmlElement, options){
+        var processedData = chartData;
+        var table = new google.visualization.Table(document.getElementById(htmlElement));
+        table.draw(processedData, options);
     }
 }
