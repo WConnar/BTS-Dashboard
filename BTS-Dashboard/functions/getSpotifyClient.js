@@ -1,3 +1,5 @@
+//@VT_VACKINTOSH
+//A class that returns needed Spotify API keys
 const SpotifyWebApi = require('spotify-web-api-node');
 const getSpotifyClient = () =>{
     return new SpotifyWebApi({

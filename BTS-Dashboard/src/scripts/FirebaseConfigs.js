@@ -1,3 +1,5 @@
+//@VT_VACKINTOSH
+//Firebase authentication methods
 const auth = firebase.auth();
 const Googleprovider = new firebase.auth.GoogleAuthProvider();
 const signWithGoogle = document.getElementById('signWithGoogle');

@@ -1,3 +1,5 @@
+//@VT_VACKINTOSH
+//A class for saving Spotify track data in correct collections
 const {DatabaseAgent} = require('./DatabaseAgent.js');
 
 

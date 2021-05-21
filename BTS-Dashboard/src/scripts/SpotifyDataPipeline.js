@@ -1,4 +1,5 @@
-//This class is for aranging the features from the data for the charts to use.
+//This class is for arranging the features from the Spotify top tracks data for the charts to use.
+//@VT_VACKINTOSH
 class SpotifyDataPipeline{
     constructor(){
         this.getData = firebase.functions().httpsCallable("getDataFromSpotifyDB");
