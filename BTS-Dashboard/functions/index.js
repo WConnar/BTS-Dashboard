@@ -27,9 +27,11 @@ const tweetHandler = new TweetUpdater(TD_Agent, TAPI_Agent);
 const SpotifyTracker = new SpotifyTopTracks(SpotifyClient, SD_Agent);
 
 //The top tracks for each country passed are being stored in appropriate Firestire collections
+//Also, the audio features for Dynamite are also being taken here
 //@VT_VACKINTOSH
-exports.getTopTracks = functions.https.onCall(async(context) =>{
-  SpotifyTracker.getTracks('');
+exports.getTopTracks = functions.https.onRequest((request, response) =>{
+  cors(request, response, async () => {
+    SpotifyTracker.getAudio();
   SpotifyTracker.getTracks('PH');
   SpotifyTracker.getTracks('US');
   SpotifyTracker.getTracks('TH');
@@ -40,6 +42,8 @@ exports.getTopTracks = functions.https.onCall(async(context) =>{
   SpotifyTracker.getTracks('KR');
   SpotifyTracker.getTracks('JP');
   SpotifyTracker.getTracks('ID');
+  })
+  
 })
 
 //KD
@@ -129,6 +133,7 @@ exports.refreshTweets = functions.pubsub.schedule('every 24 hours').timeZone('Am
   return null;
 })
 //@VT_VACKINTOSH
+//Scheduled function for updating tracks and audio features
 exports.refreshTracks = functions.pubsub.schedule('every 24 hours').timeZone('America/New_York').onRun((context) => {
   const newTracks = 'https://us-central1-btsdashboard-d7ad5.cloudfunctions.net/getTopTracks';
   fetch(newTracks)

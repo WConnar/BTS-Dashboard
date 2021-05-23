@@ -13,8 +13,8 @@ export class RegionalSpotifyComponent implements OnInit {
   async ngOnInit(){
     let chartHandler = new ChartCreator();
     let dataPipeline = new SpotifyDataPipeline();
-    var optionsGlobal = {
-      title: 'BTS Top Popular Tracks in the World',
+    var optionsAudio = {
+      title: 'Dynamite Audio Features',
       width: 1500,
       height: 500,
     }
@@ -60,8 +60,8 @@ export class RegionalSpotifyComponent implements OnInit {
       title: 'BTS Top Popular Tracks in Japan'
     }
 
-    let dataGlobal = await dataPipeline.getBarChartData("name", "popularity", ["Track", "Popularity on Spotify"], '');
-    chartHandler.createBarChart(dataGlobal, "topTracksGlobal", optionsGlobal);
+    let dataAudio = await dataPipeline.getBarChartData(["Feature", "Value"]);
+    chartHandler.createBarChart(dataAudio, "AudioFeatures", optionsAudio);
     
 
     let dataUS = await dataPipeline.getTableData("name", 'US');

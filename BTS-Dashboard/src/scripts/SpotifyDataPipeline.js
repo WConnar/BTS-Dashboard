@@ -1,4 +1,4 @@
-//This class is for arranging the features from the Spotify top tracks data for the charts to use.
+//This class is for arranging the features from the Spotify top tracks and audio data for the charts to use. 
 //@VT_VACKINTOSH
 class SpotifyDataPipeline{
     constructor(){
@@ -28,23 +28,41 @@ class SpotifyDataPipeline{
             
         return tableData;
     }
-    async getBarChartData(name, popularity, axisVariables, region){
+    async getBarChartData(axisVariables){
         let chartData = [];
         //let names = [];
         //let pops = [];
         chartData.push(axisVariables);
         
             
-            await this.getData("tracks" + region).then(result => {
+            await this.getData("AudioFeatures").then(result => {
                 let graphVariable1 = "";
                 let graphVariable2 = "";
                
                 result.data.map(data => {
-                    graphVariable1 = data.data[name];
-                    graphVariable2 = data.data[popularity];
-                    //console.log('GB', graphVariable1, graphVariable2);
-                    //names.push(graphVariable1);
-                    //pops.push(graphVariable2);
+                    graphVariable1 = 'acousticness';
+                    graphVariable2 = data.data.body['acousticness'];
+                    
+                    chartData.push([graphVariable1, graphVariable2]);
+                    graphVariable1 = 'danceability';
+                    graphVariable2 = data.data.body['danceability'];
+                    
+                    chartData.push([graphVariable1, graphVariable2]);
+                    graphVariable1 = 'energy';
+                    graphVariable2 = data.data.body['energy'];
+                    
+                    chartData.push([graphVariable1, graphVariable2]);
+                    graphVariable1 = 'liveness';
+                    graphVariable2 = data.data.body['liveness'];
+                    
+                    chartData.push([graphVariable1, graphVariable2]);
+                    graphVariable1 = 'speechiness';
+                    graphVariable2 = data.data['speechiness'];
+                    
+                    chartData.push([graphVariable1, graphVariable2]);
+                    graphVariable1 = 'valence';
+                    graphVariable2 = data.data.body['valence'];
+                    
                     chartData.push([graphVariable1, graphVariable2]);
                 
                 });

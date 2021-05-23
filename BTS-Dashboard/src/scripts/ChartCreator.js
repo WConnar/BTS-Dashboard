@@ -23,6 +23,7 @@ class ChartCreator{
         var geoChart = new google.visualization.GeoChart(document.getElementById(htmlElement));
         geoChart.draw(processedData, options);
     }
+    //@VT_VACKINTOSH
     async createTable(chartData, htmlElement, options){
         var processedData = chartData;
         var table = new google.visualization.Table(document.getElementById(htmlElement));
